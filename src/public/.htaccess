@@ -1,4 +1,8 @@
 ﻿Options +FollowSymLinks -MultiViews
 RewriteEngine on
 
+RewriteCond %{REQUEST_FILENAME} -f                [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .  -      
+
 RewriteRule ^([^/]+)/? index.php?page=$1 [L,QSA]
