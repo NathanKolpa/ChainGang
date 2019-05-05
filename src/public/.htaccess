@@ -1,10 +1,12 @@
-﻿Options +FollowSymLinks -MultiViews
-RewriteEngine on
+﻿RewriteEngine on
+#Options +FollowSymLinks -MultiViews
 
-RewriteCond %{REQUEST_FILENAME} -f                [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule .  -      
 
+RewriteCond %{REQUEST_URI} !\.png$|\.css|\.jpg|\.js [NC]
 RewriteRule ^([^/]+)/([^/]+)/([^/]+)? index.php?page=$1/$2/$3 [L,QSA]
+
+RewriteCond %{REQUEST_URI} !\.png$|\.css|\.jpg|\.js [NC]
 RewriteRule ^([^/]+)/([^/]+)? index.php?page=$1/$2 [L,QSA]
+
+RewriteCond %{REQUEST_URI} !\.png$|\.css|\.jpg|\.js [NC]
 RewriteRule ^([^/]+)? index.php?page=$1 [L,QSA]
