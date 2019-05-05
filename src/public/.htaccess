@@ -5,4 +5,6 @@ RewriteCond %{REQUEST_FILENAME} -f                [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule .  -      
 
-RewriteRule ^([^/]+)/? index.php?page=$1 [L,QSA]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)? index.php?page=$1/$2/$3 [L,QSA]
+RewriteRule ^([^/]+)/([^/]+)? index.php?page=$1/$2 [L,QSA]
+RewriteRule ^([^/]+)? index.php?page=$1 [L,QSA]
