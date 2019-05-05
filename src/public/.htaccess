@@ -1,0 +1,4 @@
+﻿Options +FollowSymLinks -MultiViews
+RewriteEngine on
+
+RewriteRule ^([^/]+)/? index.php?page=$1 [L,QSA]
