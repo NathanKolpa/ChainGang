@@ -5,8 +5,14 @@
     border: 2px solid gray;
     border-left: 0px;
     border-right: 0px;
+    border-top: 0px;
     display: flex;
     padding: 10px;
+}
+
+.Review:first-of-type
+{
+    border-top: 2px solid gray;
 }
 
 .ReviewHeader h3, h2
