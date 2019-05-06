@@ -13,11 +13,18 @@
 {
     float: left;
     margin: 0px;
+    margin-right: 10px
 }
+
+.ReviewHeader p
+{
+    margin: 0;
+}
+
 
 .ReviewHeader
 {
-    display: table;
+    display: grid;
     clear: both;
 }
 
@@ -28,27 +35,31 @@
 .Arrow
 {
     border: solid black;
-    border-width: 0 3px 3px 0;
     display: inline-block;
-    padding: 3px;
+    padding: 5px;
 }
 
 .VoteSelected
 {
     border: solid blue;
-    border-width: 0 3px 3px 0;
+}
+
+.Arrow, .VoteSelected
+{
+    border-width: 0 5px 5px 0;
 }
 
 .ReviewVote
 {
     text-align: center;
-    margin-right: 15px;
+    padding: 10px
 }
 
 
 .ReviewVote p
 {
     margin: 0;
+    font-size: 24px;
 }
 
 .Up
