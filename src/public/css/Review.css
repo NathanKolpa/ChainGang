@@ -1,0 +1,64 @@
+.Review
+{
+    width: 100%;
+    height: auto;
+    border: 2px solid gray;
+    border-left: 0px;
+    border-right: 0px;
+    display: flex;
+    padding: 10px;
+}
+
+.ReviewHeader h3, h2
+{
+    float: left;
+    margin: 0px;
+}
+
+.ReviewHeader
+{
+    display: table;
+    clear: both;
+}
+
+.ReviewContent
+{
+}
+
+.Arrow
+{
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.VoteSelected
+{
+    border: solid blue;
+    border-width: 0 3px 3px 0;
+}
+
+.ReviewVote
+{
+    text-align: center;
+    margin-right: 15px;
+}
+
+
+.ReviewVote p
+{
+    margin: 0;
+}
+
+.Up
+{
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.Down
+{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
