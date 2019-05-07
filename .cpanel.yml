@@ -1,4 +1,5 @@
 ---
 deployment:
   tasks:
-    - /src/public/index.php /users/nkolpa/public_html
+    - export DEPLOYPATH=/home/nkolpa/public_html/
+    - /src/public/index.php $DEPLOYPATH
