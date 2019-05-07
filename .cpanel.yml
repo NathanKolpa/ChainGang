@@ -1,3 +1,4 @@
-eployment:
+---
+deployment:
   tasks:
     - /public/index.php /users/nkolpa/public_html
