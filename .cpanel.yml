@@ -1,4 +1,3 @@
 eployment:
   tasks:
-    - /public/* /users/nkolpa/public_html
-    - /private/* /users/nkolpa/private
+    - /public/index.php /users/nkolpa/public_html
