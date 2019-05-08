@@ -10,7 +10,7 @@ class DataBase
         $serverName = "localhost";
         $userName = "nkolpa_root";
         $password = "pikhoofd123";
-        $dbName = "nkolpa_chaingang";
+        $dbName = "chaingang";
         
         $this->dbConnection = new mysqli($serverName, $userName, $password);
         $this->dbConnection->set_charset("utf8");
