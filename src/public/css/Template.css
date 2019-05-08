@@ -1,0 +1,60 @@
+body
+{
+	margin: 0;
+	padding: 0;
+}
+
+.Header
+{
+	width: 1100px;
+	height: 100px;
+	margin: auto;
+	border: 1px solid black;
+}
+
+.Logo
+{
+	float: left;
+}
+
+.Foto
+{
+	margin-top: 10px;
+	width: 125px;
+	height: 75px;
+}
+
+.Zoek
+{
+	float: left;
+}
+
+.Form
+{
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.ZoekBalk
+{
+	width: 900px;
+	border-radius: 4px;
+	font-size: 22px;
+	margin-top: 1px;
+}
+
+.Button
+{
+	margin-top: -5px;
+	width: 15px;
+	height: 30px;
+}
+
+li
+{
+	margin-top: 10px;
+	margin-left: 20px;
+	float: left;
+	list-style: none;
+	font-size: 20px;
+}
