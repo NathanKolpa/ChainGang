@@ -10,4 +10,4 @@ require_once(PRIVATE_FOLDER . "/config/config.php");
 
 
 //echo $_GET["page"];
-//Route::loadPage($_GET["page"]);
+Route::loadPage($_GET["page"]);
