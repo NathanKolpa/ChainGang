@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/nkolpa/public_html/
-    - /bin/cp src/public/index.php $DEPLOYPATH
     - /bin/cp -R src/public/js $DEPLOYPATH
+    - /bin/cp src/public/index.php $DEPLOYPATH
     - /bin/cp -R src/public/css $DEPLOYPATH
     - /bin/cp -R src/public/img $DEPLOYPATH
