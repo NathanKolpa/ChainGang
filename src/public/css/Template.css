@@ -58,3 +58,31 @@ li
 	list-style: none;
 	font-size: 20px;
 }
+
+/*Start css footer*/
+
+.Footer
+{
+	width: 1100px;
+	height: 125px;
+	border: 1px solid black;
+	margin: auto;
+	background-color: #006aff;
+}
+
+.Tabel
+{
+	float: left;
+	border-right: 1px solid black;
+	margin-left: 5%;
+}
+
+th
+{
+	text-align: left;
+}
+
+table
+{
+	width: 200px;
+}
