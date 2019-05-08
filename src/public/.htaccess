@@ -1,4 +1,5 @@
-﻿RewriteEngine on
+
+RewriteEngine on
 #Options +FollowSymLinks -MultiViews
 
 
