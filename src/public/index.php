@@ -11,4 +11,4 @@ $result = $db->querry("select * from review_vote");
 print_r($result->fetch_assoc());
 
 //echo $_GET["page"];
-Route::loadPage($_GET["page"]);
+//Route::loadPage($_GET["page"]);
