@@ -23,4 +23,4 @@ require_once config["CLASS_FOLDER"] . "Controller.php";
 require_once config["CLASS_FOLDER"] . "DataBase.php";
 
 //set de routes
-include "routes.php";
+include "Routes.php";
