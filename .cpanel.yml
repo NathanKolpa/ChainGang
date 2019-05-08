@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/nkolpa/public_html/
-    - /bin/cp readme.md $DEPLOYPATH
+    - /bin/cp -a * $DEPLOYPATH
