@@ -23,7 +23,7 @@ class DataBase
         {
             if (!$this->dbConnection->select_db($dbName))
             {
-                die("Failed to connect to data base: " . $dbName);
+                die("Failed to user to data base: " . $dbName);
             }
         }
     }
