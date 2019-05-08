@@ -26,4 +26,9 @@ class DataBase
             }
         }
     }
+
+    public function querry(string $querry)
+    {
+        return $this->dbConnection->multi_query($querry);
+    }
 }
