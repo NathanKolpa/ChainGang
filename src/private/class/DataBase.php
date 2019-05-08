@@ -10,6 +10,7 @@ class DataBase
         $serverName = "localhost";
         $userName = "nkolpa_root";
         $password = "pikhoofd123";
+        $dbName = "nkolpa_chaingang";
         
         $this->dbConnection = new mysqli($serverName, $userName, $password);
         $this->dbConnection->set_charset("utf8");
@@ -20,9 +21,9 @@ class DataBase
         }
         else
         {
-            if ($this->dbConnection->query("USE nkolpa_chaingang") != TRUE)
+            if (!$this->dbConnection->select_db($dbName))
             {
-                die("Failed to connect to data base: " . "nkolpa_chaingang");
+                die("Failed to connect to data base: " . $dbName);
             }
         }
     }
