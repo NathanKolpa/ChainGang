@@ -21,9 +21,9 @@ class DataBase
         }
         else
         {
-            if (!$this->dbConnection->select_db($dbName))
+            if (!mysqli_select_db($this->dbConnection,$dbName))
             {
-                //die("Failed to use to data base: " . $dbName);
+                die("Failed to use to data base: " . $dbName);
             }
         }
     }
