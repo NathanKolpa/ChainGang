@@ -5,15 +5,11 @@ class DataBase
 
     private $dbConnection;
 
-    public function __construct()
+    public function __construct($serverName, $userName, $password, $dbName)
     {
-        $serverName = "localhost";
-        $userName = "nkolpa_root";
-        $password = "pikhoofd123";
-        $dbName = "nkolpa_chaingang";
         
         $this->dbConnection = new mysqli($serverName, $userName, $password, $dbName);
-       // $this->dbConnection->set_charset("utf8");
+        $this->dbConnection->set_charset("utf8");
 
         if ($this->dbConnection->connect_error)
         {
