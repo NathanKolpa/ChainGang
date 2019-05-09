@@ -118,9 +118,7 @@ p.info:hover span
 	width: 7em;
 	height: 30px;
 	background-color: white;
-	border-top: 1px solid black;
-	border-left: 1px solid black;
-	border-right: 1px solid black;
+	border: 1px solid black;
 	text-align: center;
 	padding: 10px;
 	margin-left: 12px;
