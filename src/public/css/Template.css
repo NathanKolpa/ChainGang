@@ -116,7 +116,7 @@ p.info:hover span
 	display: block;
 	position: absolute;
 	width: 7em;
-	height: 35px;
+	height: 30px;
 	background-color: white;
 	border-top: 1px solid black;
 	border-left: 1px solid black;
@@ -126,9 +126,9 @@ p.info:hover span
 	margin-left: 12px;
 	opacity: 100;
 
-	-moz-transition: opacity .2s;
-	-webkit-transition: opacity .2s;
-	transition: opacity .2s;
+	-moz-transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
 
 }
 
