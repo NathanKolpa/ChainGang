@@ -126,9 +126,9 @@ p.info:hover span
 	margin-left: 12px;
 	opacity: 100;
 
-	-moz-transition: opacity 1s;
-	-webkit-transition: opacity 1s;
-	transition: opacity 1s;
+	-moz-transition: opacity 0.2s;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
 
 }
 
