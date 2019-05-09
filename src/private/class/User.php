@@ -12,7 +12,7 @@ class User
         $this->dataBase = $dataBase;
     }
 
-    public static function tryLogin(DataBase $db, $email, $password) : ?User
+    public static function tryLogin(DataBase $db, $email, $password)
     {
         $result = $db->querry("SELECT pwd_hash, user_id FROM users WHERE email = ?", "s", $email);
 
@@ -59,10 +59,10 @@ class User
         }
     }
 
-    public static function getUserByID($db, $id) : ?User
+    public static function getUserByID($db, $id)
     {
         $result = $db->querry("SELECT user_id FROM users WHERE user_id = ?", "d", $id);
-        
+
         $foo = -1;
         $result->bind_result($foo);
 
@@ -76,7 +76,7 @@ class User
         return null;
     }
 
-    public function getFullName() : ?string
+    public function getFullName()
     {
         if($this->userID != -1)
         {
