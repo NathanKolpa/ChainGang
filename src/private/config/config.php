@@ -22,6 +22,7 @@ const config = array
 require_once config["CLASS_FOLDER"] . "Route.php";
 require_once config["CLASS_FOLDER"] . "Controller.php";
 require_once config["CLASS_FOLDER"] . "DataBase.php";
+require_once config["CLASS_FOLDER"] . "User.php";
 
 //define global database variable
 $dataBase;
