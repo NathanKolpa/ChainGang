@@ -17,18 +17,12 @@ class DataBase
         }
     }
 
-    public function querry(string $querry, string $types, ...$parameters) : mysqli_stmt
+    public function querry(string $querry, string $types, &...$params) : mysqli_stmt
     {
         $statement = $this->dbConnection->prepare($querry);
-        $statement->bind_param($types, $parameters);
+        $statement->bind_param($types, ...$params);
+        $statement->execute();
+        return $statement;
 
-        if($statement->exec())
-        {
-            return $statement;
-        }
-        else
-        {
-            die($statement->error);
-        }
     }
 }
