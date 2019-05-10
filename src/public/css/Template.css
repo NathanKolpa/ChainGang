@@ -1,0 +1,196 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Container
+{
+	width: 1100px;
+	margin: auto;
+}
+
+.Header
+{
+	width: 100%;
+	height: 100px;
+	margin: auto;
+	border: 1px solid black;
+}
+
+.Logo
+{
+	float: left;
+}
+
+.Foto
+{
+	margin-top: 10px;
+	width: 125px;
+	height: 75px;
+}
+
+.Zoek
+{
+	float: left;
+}
+
+.Form
+{
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.ZoekBalk
+{
+	width: 900px;
+	border-radius: 4px;
+	font-size: 22px;
+	margin-top: 1px;
+}
+
+.Button
+{
+	margin-top: -5px;
+	width: 15px;
+	height: 30px;
+}
+
+li
+{
+	margin-top: 10px;
+	margin-left: 20px;
+	float: left;
+	list-style: none;
+	font-size: 20px;
+}
+
+/*Start css footer*/
+
+.Footer
+{
+	width: 100%;
+	height: 125px;
+	border-top: 1px solid black;
+	margin: auto;
+}
+
+.Footer table
+{
+	width:  100%;
+	table-layout: fixed ;
+}
+
+.Footer td
+{
+	vertical-align: middle;
+	text-align: center; 
+}
+
+.Footer thead
+{
+	font-weight: bold;
+}
+
+.Footer ul
+{
+	height: 100px;
+}
+
+a.info
+{
+	color: #000;
+	text-decoration: none;
+	text-align: center;
+	margin-left: 15px;
+}
+
+.Menu li
+{
+	position: absolute;
+	margin-top: 40px;
+}
+
+
+.Content
+{
+}
+
+
+p.info span
+{
+	opacity: 0;
+	position: absolute;
+}
+
+p.info:hover span
+{ /*the span will display just on :hover state*/
+	display: block;
+	position: absolute;
+	width: 7em;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
+	margin-left: 12px;
+	opacity: 100;
+
+	-moz-transition: opacity 0.2s;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+
+}
+
+p.info:hover span:after
+{ /*the span will display just on :hover state*/
+	content: '';
+	position: absolute;
+	bottom: -11px;
+	width: 10px;
+	left: 50%;
+	margin-left: -5px;
+}
+
+/* ---------------------------------------- */
+span.spanInfo a.aInfo
+{
+	display: none
+}
+
+span.spanInfo:hover a.aInfo
+{ /*the span will display just on :hover state*/
+	display: block;
+	position: absolute;
+	width: 7em;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
+	margin-left: 150px;
+	margin-top: -34px;
+
+}
+
+span.spanInfo:hover a.aInfo:after
+{ /*the span will display just on :hover state*/
+	content: '';
+	position: absolute;
+	bottom: -11px;
+	width: 10px;
+	left: 50%;
+	margin-left: -5px;
+}
+
+a.aInfo
+{
+	color: black;
+	text-decoration: none;
+}
+
+
+
+
+
