@@ -39,6 +39,10 @@ abstract class PageController extends Controller
         {
             $data["user"] = $_SESSION["user"];
         }
+        else
+        {
+            $data["user"] = null;
+        }
 
         if($this->otherLoad == null)
         {
