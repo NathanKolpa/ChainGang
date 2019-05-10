@@ -4,9 +4,9 @@ require_once config["CONTROLLER_FOLDER"] . "PageController.php";
 
 class HomeController extends PageController
 {
-    public function __construct()
+    public function __construct($db)
     {
-        parent::__construct("Home.phtml", "Home");
+        parent::__construct("Home.phtml", "Home", $db);
     }
 
     protected function getData() : array
