@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <?php include config["TEMPLATE_FOLDER"] . "Head.phtml" ?>
+        <link rel="stylesheet" href="css/Login.css">
+
+        <script src="js/Register.js"></script>
+    </head>
+    <body>
+        <?php include config["TEMPLATE_FOLDER"] . "Header.phtml" ?>     <!--Import Header-->
+        <!--Content-->
+
+        <form method="POST" class="LoginForm" action="register" onsubmit="return verified()">
+            <table>
+                <tr class="CenterTr">
+                    <td colspan="2" style="text-align: center"><h1>Registreren</h1></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center"><p>*  is verplicht</p></td>
+                </tr>
+                <tr>
+                    <td>Voornaam *</td>
+                    <td><input class="LoginInput" type="text" name="firstname" required></td>
+                </tr>
+                <tr>
+                    <td>Achternaam *</td>
+                    <td><input class="LoginInput" type="text" name="lastname" required></td>
+                </tr>
+               <tr>
+                    <td>Wachtwoord *</td>
+                    <td><input class="LoginInput" id="password" type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td>Wachtwoord herhalen *</td>
+                    <td><input class="LoginInput" type="password" id="passwordVerified" required></td>
+                </tr>
+                <tr>
+                    <td>Email *</td>
+                    <td><input class="LoginInput" id="email" type="email" name="email" required></td>
+                </tr>
+               <tr>
+                    <td>Email herhalen *</td>
+                    <td><input class="LoginInput" type="email" id="emailVerified" required></td>
+                </tr>
+
+                <tr class="CenterTr">
+                    <td colspan="2"><input class="LoginButton" type="submit" value="Login"></td>
+                </tr>
+                <tr class="CenterTr">
+                    <td colspan="2"><?php if(isset($data["succes"])){echo "<p style='text-align:center; color: black;'>". $data["succes"] ."</p>";}?></td>
+                </tr>
+            </table>
+        </form>
+
+        <!--Einde Content-->
+        <?php include config["TEMPLATE_FOLDER"] . "Footer.phtml" ?>     <!--Import Footer-->
+    </body>
+</html>

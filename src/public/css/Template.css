@@ -190,6 +190,19 @@ a.aInfo
 	text-decoration: none;
 }
 
+.Welkom
+{
+	float: right;
+	margin-right: 10px;
+	margin-top: -5px;
+}
+.Loguit
+{
+	float: right;
+	margin-right: -100px;
+	margin-top: 15px;
+}
+
 
 
 
