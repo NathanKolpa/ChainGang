@@ -1,0 +1,39 @@
+#product
+{
+    width: 315px;
+    height: 510px;
+    background-color: lightgray;
+    padding-left: 10px;
+    box-shadow: 5px 6px 5px lightgrey;
+}
+#foto
+{
+    width: 290px;
+    height: 315px;
+    margin: 10px 5px 5px 5px;
+    background-color: white;
+}
+
+h4
+{
+
+}
+
+#prijs
+{
+    float: right;
+    padding-right:15px;
+}
+
+#knop
+{
+    width:291px;
+    height:40px;
+    margin:4px;
+    display:block;
+    text-align:center;
+    background-color:#90B531;
+    font-size:8pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin-top: 50px;
+}

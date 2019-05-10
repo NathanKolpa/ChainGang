@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<script>
+    function voegToe()
+    {
+        var knop = document.getElementById("knop");
+        var foto = document.getElementById("foto");
+        if (knop.value=="voeg aan winkelwagen toe")
+        {
+            knop.value = "ligt in winkelwagen";
+            // maakt de foto transparante zo dat je kunt zien dat het in de winkelwagen ligt
+            foto.style.opacity = .5; //For real browsers;
+            foto.style.filter = "alpha(opacity=50)"; //For IE;
+        }
+        else{
+            //ga naar winkelwagen
+            location.href='https://www.google.nl/';
+        }
+    }
+    
+    function gaNaarProduct(ProductLink) {
+        //gaat naar detail pagina van de fiets
+        location.href= ProductLink;
+    }
+
+    // voeg nog een een laad event toe dat alles van de database een lijst van maakt
+    // en controlleerd of het al in de winkelwagen van gebruiker zit zo ja
+    // dan voert die automatisch de change() functie uit
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../public/css/Product.css">
+</head>
+
+<body>
+<div id="product">
+    <!--<img src="../../public/img/Fiets.png" alt="fiets" id="foto">-->
+    <input onclick="gaNaarProduct('https://www.google.nl')" type="image" src="../../public/img/Fiets.png" alt="fiets" id="foto"></input>
+
+    <p id="prijs">$ 0,00</p>
+    <h4>product name</h4>
+
+    <p>product bechrijving</p>
+
+    <input onclick="voegToe()" type="button" value="voeg aan winkelwagen toe" id="knop"></input>
+
+</div>
+</body>
