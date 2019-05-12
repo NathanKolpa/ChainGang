@@ -1,9 +1,16 @@
 <?php
 
-class HomeController extends Controller
+require_once config["CONTROLLER_FOLDER"] . "PageController.php";
+
+class HomeController extends PageController
 {
-    public function createView()
+    public function __construct($db)
     {
-        $this->loadView("Home.phtml", array("title" => "Home"));
+        parent::__construct("Home.phtml", "Home", $db);
+    }
+
+    protected function getData() : array
+    {
+        return array();
     }
 }

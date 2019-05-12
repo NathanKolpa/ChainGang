@@ -1,14 +1,21 @@
 <?php
 
-class NotFoundController extends Controller
+require_once config["CONTROLLER_FOLDER"] . "PageController.php";
+
+class NotFoundController extends PageController
 {
-    public function createView()
+    public function __construct($db)
     {
-        $this->loadView("ErrorPage.phtml", array
+        parent::__construct("ErrorPage.phtml", "Pagina niet gevonden", $db);
+    }
+
+
+    protected function getData() : array    
+    {
+        return array
         (
-            "title" => "Pagina niet gevonden",
             "errorMsg" => "Pagina \"" . strip_tags($_GET["page"]) . "\" Niet gevonden",
             "errorCode" => 404
-        ));
+        );
     }
 }
