@@ -19,7 +19,7 @@ class LoginController extends PageController
 
             if($user != null)
             {
-                $_SESSION["user"] = $user;
+                $_SESSION["userid"] = $user->getId();
 
                 if(isset($_GET["return"]) && $_GET["return"] != "")
                 {

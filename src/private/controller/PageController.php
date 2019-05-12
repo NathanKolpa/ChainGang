@@ -35,9 +35,9 @@ abstract class PageController extends Controller
             "title" => $this->title,
         );
 
-        if(isset($_SESSION["user"]))
+        if(isset($_SESSION["userid"]))
         {
-            $data["user"] = $_SESSION["user"];
+            $data["user"] = User::getUserByID($this->dataBase, $_SESSION["userid"]);
         }
 
         if($this->otherLoad == null)
