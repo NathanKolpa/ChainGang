@@ -10,7 +10,7 @@
                         <td><input type="text" class="ZoekBalk"></td>
                         <td><input type="submit" class="Button" value="&#x1F50E;" style="width:auto;"</td>
                         <td>profiel naam</td>
-                        <td>uitloggen</td>
+                        <?=isset($data["user"]) ? "<td><a href='home?logout=true'>uitloggen</a></td>" : ""?>
                         <td>winkel wagen</td>
                     </tr><!--zoek resultaten hier onder met jquerry-->
                 </table>

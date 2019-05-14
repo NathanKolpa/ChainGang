@@ -36,6 +36,12 @@ abstract class PageController extends Controller
             "base" => "",
         );
 
+        //logout
+        if(isset($_GET["logout"]))
+        {
+            $_SESSION["userid"] = null;
+        }
+
         if(isset($_SESSION["userid"]))
         {
             $data["user"] = User::getUserByID($this->dataBase, $_SESSION["userid"]);
