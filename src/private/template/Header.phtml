@@ -1,40 +1,43 @@
-<div class="Container">
-    <div class="Header">
-        <div class="Logo">
-            <img src="img/Fiets.png" class="Foto" alt="fiets">
-        </div>
-        <div style="height:100%; width:700px; float:left;">
-            <form>
-                <table class="Zoek">
-                    <tr>
-                        <td><input type="text" class="ZoekBalk"></td>
-                        <td><input type="submit" class="Button" value="&#x1F50E;" style="width:auto;"</td>
-                        <td>profiel naam</td>
-                        <td>uitloggen</td>
-                        <td>winkel wagen</td>
-                    </tr><!--zoek resultaten hier onder met jquerry-->
-                </table>
-            </form>
+<div class="container border">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
+            <a class="navbar-brand" href="#"><img height="50" src="img/Fiets.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Catogorien</a>
+                    </li>
+                </ul>
+                
+                <div class="navbar-text" style="margin-right: 20px">
+                    <?php
+                        if(isset($data["user"]))
+                        {
+                            ?>
+                            <a style="margin-right: 20px;" href="#"><?=$data["user"]->getFullName()?></a>
+                            <a href="home?logout=true">Uitloggen</a>
+                            <?php
+                        }
+                        else
+                        {
+                            ?>
+                            <a style="margin-right: 20px; href="login?return=<?=$data["page"] == "" ? "home" : $data["page"]?>">Inloggen</a>
+                            <a href="register">Registreren</a>
+                            <?php
+                        }
+                    ?>
+                </div>
 
-            <ul class="top-level-menu">
-                <li>
-                    <a>Catogorien</a>
-                    <ul class="second-level-menu">
-                        <li><a href="#">Mannen</a></li>
-                        <li><a href="#">Vrouwen</a></li>
-                        <li>
-                            <a href="#">Kinderen</a>
-                            <ul class="third-level-menu">
-                                <li><a href="#">kinder ding 1</a></li>
-                                <li><a href="#">kinder ding 2</a></li>
-                                <li><a href="#">kinder ding 3</a></li>
-                                <li><a href="#">kinder ding 4</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+                 <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Zoek een product">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
     </div>
-        <div class="Content">
-

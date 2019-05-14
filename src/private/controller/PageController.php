@@ -34,7 +34,14 @@ abstract class PageController extends Controller
         (
             "title" => $this->title,
             "base" => "",
+            "page" => $this->route
         );
+
+        //logout
+        if(isset($_GET["logout"]))
+        {
+            $_SESSION["userid"] = null;
+        }
 
         if(isset($_SESSION["userid"]))
         {
