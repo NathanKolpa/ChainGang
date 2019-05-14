@@ -20,13 +20,16 @@
                         if(isset($data["user"]))
                         {
                             ?>
-                            <a href="#">naam</a>
+                            <a style="margin-right: 20px;" href="#"><?=$data["user"]->getFullName()?></a>
                             <a href="home?logout=true">Uitloggen</a>
                             <?php
                         }
                         else
                         {
-                            ?><a href="login?return=<?=$data["page"] == "" ? "home" : $data["page"]?>">Inloggen</a><?php
+                            ?>
+                            <a style="margin-right: 20px;" href="login?return=<?=$data["page"] == "" ? "home" : $data["page"]?>">Inloggen</a>
+                            <a href="register">Registreren</a>
+                            <?php
                         }
                     ?>
                 </div>
