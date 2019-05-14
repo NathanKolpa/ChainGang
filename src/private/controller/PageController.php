@@ -34,6 +34,7 @@ abstract class PageController extends Controller
         (
             "title" => $this->title,
             "base" => "",
+            "page" => $this->route
         );
 
         if(isset($_SESSION["userid"]))
