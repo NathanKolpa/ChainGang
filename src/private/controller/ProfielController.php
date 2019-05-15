@@ -16,6 +16,10 @@ class ProfielController extends PageController
 
     protected function getData(): array
     {
-        return array();
+        $usr = User::getUserByID($this->dataBase, $_SESSION["userid"]);
+
+
+        return array("firstname" => $usr->getFirstName(), "lastname" => $usr->getLastName(), "email" => $usr->getEmail(),
+            "adres" => $usr->getAdres());
     }
 }
