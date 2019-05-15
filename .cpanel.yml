@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/nkolpa/public_html/
+    - /bin/cp -R src/private /home/nkolpa/
+    - /bin/cp  -R src/public/* $DEPLOYPATH

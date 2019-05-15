@@ -23,13 +23,13 @@ class Route
     {
         if(isset(self::$routes[$route]))
         {//laad de pagina
-            self::$routes[$route]->createView();
+            self::$routes[$route]->start($route);
         }
         else
         {//de pagina is niet gevonden
             if(isset(self::$routes["404"]))
             {//laad de 404 pagina als hij bestaat
-                self::$routes["404"]->createView();
+                self::$routes["404"]->start($route);
             }
             else
             {//ander gewoon die
