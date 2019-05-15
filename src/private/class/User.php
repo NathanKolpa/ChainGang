@@ -2,7 +2,6 @@
 
 class User
 {
-
     private $dataBase;
     private $isLoggedIn = false;
     private $userID = -1;
