@@ -1,0 +1,9 @@
+.navbar
+{
+    background: #199ed8 !important;
+}
+
+.navbar a, .navbar i
+{
+    color: white !important;
+}
