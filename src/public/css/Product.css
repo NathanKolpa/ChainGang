@@ -1,34 +1,70 @@
-#product
+.ProductBody
 {
-    width: 315px;
-    height: 510px;
+    width: 228px;
+    height: 450px;
     background-color: lightgray;
-    padding-left: 10px;
+    padding-left: 15px;
     box-shadow: 5px 6px 5px lightgrey;
+    word-wrap: break-word;
+    position: relative;
 }
-#foto
+.ProductFoto
 {
-    width: 290px;
-    height: 315px;
+    width: 190px;
+    height: 190px;
     margin: 10px 5px 5px 5px;
-    background-color: white;
+    background: white;
 }
 
-#prijs
+.ProductPrijs
 {
-    float: right;
     padding-right:15px;
 }
 
-#knop
+.ProductKnop
 {
-    width:291px;
+    width:190px;
     height:40px;
-    margin:4px;
+    margin: 5px;
     display:block;
     text-align:center;
-    background-color:#199ed8;
+    background:#199ed8;
     font-size:8pt;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    margin-top: 50px;
+    position: absolute;
+    bottom: 10px;
+}
+
+
+.ProductWrapper
+{
+    padding-top: 10px;
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+/*---------------------------------------------------------
+  M E D I A   Q U E R I E S
+-----------------------------------------------------------*/
+
+@media only screen and (max-width: 800px)
+{
+    .ProductWrapper
+    {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+@media only screen and (max-width: 480px)
+{
+    .ProductWrapper
+    {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
 }
