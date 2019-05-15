@@ -33,11 +33,26 @@ abstract class PageController extends Controller
         $data = array
         (
             "title" => $this->title,
+            "base" => "",
+            "page" => $this->route
         );
+
+        //logout
+        if(isset($_GET["logout"]))
+        {
+            $_SESSION["userid"] = null;
+        }
 
         if(isset($_SESSION["userid"]))
         {
             $data["user"] = User::getUserByID($this->dataBase, $_SESSION["userid"]);
+        }
+
+        //get the base url
+        $count = substr_count($this->route, '/');
+        for($i = 0; $i < $count; $i++)
+        {
+            $data["base"] .= "../";
         }
 
         if($this->otherLoad == null)
