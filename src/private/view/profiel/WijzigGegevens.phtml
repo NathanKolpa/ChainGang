@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <?php include config["TEMPLATE_FOLDER"] . "Head.phtml" ?>
+        <link rel="stylesheet" href="css/Profiel.css">
+    </head>
+    <body>
+        <?php include config["TEMPLATE_FOLDER"] . "Header.phtml" ?> <!--Import Header-->
+        <!--Content-->
+        <div class="row">
+            <?php include config["TEMPLATE_FOLDER"] . "ProfielSideBar.phtml" ?>
+
+            <div class="col-sm-9">
+                <table>
+                    <form method="post">
+                        <tr>
+                            <td class="col-sm-4">Voornaam</td>
+                            <td><input type="text" name="Voornaam" placeholder="<?= $data["user"]->getFirstName()?>"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-4">Achternaam</td>
+                            <td><input type="text" name="Achternaam" placeholder="<?= $data["user"]->getLastName()?>"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-4">Email</td>
+                            <td><input type="email" name="Email" placeholder="<?= $data["user"]->getEmail()?>"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-4"></td>
+                            <td><input type="submit" value="Wijzigen"></td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+
+
+            <!--Einde Content-->
+            <?php include config["TEMPLATE_FOLDER"] . "Footer.phtml" ?> <!--Import Footer-->
+    </body>
+</html>

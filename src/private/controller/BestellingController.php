@@ -10,7 +10,7 @@ class BestellingController extends PageController
 {
     public function __construct($db)
     {
-        parent::__construct("profiel/Bestellingen.phtml", "Bestellingen", $db);
+        parent::__construct("profiel/Bestellingen.phtml", "Bestellingen", $db, true);
     }
 
     protected function getData() : array

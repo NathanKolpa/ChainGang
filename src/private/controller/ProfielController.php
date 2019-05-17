@@ -11,7 +11,7 @@ class ProfielController extends PageController
 
     public function __construct($db)
     {
-        parent::__construct("Profiel.phtml", "Profiel", $db);
+        parent::__construct("Profiel.phtml", "Profiel", $db, true);
     }
 
     protected function getData(): array
@@ -19,7 +19,6 @@ class ProfielController extends PageController
         $usr = User::getUserByID($this->dataBase, $_SESSION["userid"]);
 
 
-        return array("firstname" => $usr->getFirstName(), "lastname" => $usr->getLastName(), "email" => $usr->getEmail(),
-            "adres" => $usr->getAdres());
+        return array("firstname" => $usr->getFirstName(), "lastname" => $usr->getLastName(), "email" => $usr->getEmail());
     }
 }
