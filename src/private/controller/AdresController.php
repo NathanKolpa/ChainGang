@@ -14,7 +14,7 @@ class AdresController extends PageController
 
     public function __construct($db)
     {
-        parent::__construct("profiel/Adres.phtml", "Adres", $db);
+        parent::__construct("profiel/Adres.phtml", "Adres", $db, true);
     }
 
     protected function getData(): array

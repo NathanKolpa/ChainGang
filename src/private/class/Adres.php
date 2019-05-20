@@ -8,6 +8,7 @@ class Adres
     private $postCode;
     private $dataBase;
 
+
     public function __construct(DataBase $dataBase)
     {
         $this->dataBase = $dataBase;

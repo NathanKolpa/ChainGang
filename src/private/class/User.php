@@ -151,4 +151,20 @@ class User
     {
         return $this->userID;
     }
+
+    public function wijzigen($firstname, $lastname, $email)
+    {
+
+        $result = $this->dataBase->querry("SELECT * FROM users WHERE email = ?", "s", $email);
+        if($result->fetch())
+        {
+            //email exists
+            throw new Exception("Email is al ingebruik");
+        }
+        else
+        {
+            $result = $this->dataBase->querry("UPDATE users SET user_firstname= ?, user_lastname= ?, email= ? WHERE user_id =?", "sssd", $firstname, $lastname, $email, $this->userID);
+
+        }
+    }
 }
