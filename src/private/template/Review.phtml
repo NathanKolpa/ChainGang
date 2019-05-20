@@ -1,0 +1,21 @@
+
+<?php
+?>
+
+<div class="Review">
+    <div class="ReviewVote">
+        <i onclick="voteButton(this)" id="up_<?=$reviewObject->getId()?>" class="Arrow Up"></i>
+        <p id="count_<?=$reviewObject->getId()?>"><?=$reviewObject->getKarma()?></p>
+        <i onclick="voteButton(this)" id="down_<?=$reviewObject->getId()?>" class="Arrow Down"></i>
+    </div>
+    <div class="ReviewContent">
+        <div class="ReviewHeader">
+            <div>
+                <h2><?=$reviewObject->getTitle()?></h2>
+                <h3><?=$reviewObject->getScore()?>/10</h3>
+            </div>
+            <p>Door: <?=$reviewObject->getAuthor()->getName()?><br><b><?=$reviewObject->getDateText()?></b></p>
+        </div>
+        <p><?=$reviewObject->getText()?></p>
+    </div>
+</div>
