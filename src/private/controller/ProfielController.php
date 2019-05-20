@@ -11,11 +11,14 @@ class ProfielController extends PageController
 
     public function __construct($db)
     {
-        parent::__construct("Profiel.phtml", "Profiel", $db);
+        parent::__construct("Profiel.phtml", "Profiel", $db, true);
     }
 
     protected function getData(): array
     {
-        return array();
+        $usr = User::getUserByID($this->dataBase, $_SESSION["userid"]);
+
+
+        return array("firstname" => $usr->getFirstName(), "lastname" => $usr->getLastName(), "email" => $usr->getEmail());
     }
 }

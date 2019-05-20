@@ -35,6 +35,23 @@ class User
         return null;
     }
 
+    public static function getUserByID($db, $id)
+    {
+        $result = $db->querry("SELECT user_id FROM users WHERE user_id = ?", "d", $id);
+
+        $foo = -1;
+        $result->bind_result($foo);
+
+        if($result->fetch())
+        {
+            $user = new User($db);
+            $user->userID = $foo;
+            return $user;
+        }
+
+        return null;
+    }
+
     public static function createNewUser(DataBase $db, string $firstName, string $lastName, string $password, string $email) : bool
     {
         //cannot use the same email
@@ -58,22 +75,58 @@ class User
         }
     }
 
-    public static function getUserByID($db, $id)
+    public function getFirstName()
     {
-        $result = $db->querry("SELECT user_id FROM users WHERE user_id = ?", "d", $id);
-
-        $foo = -1;
-        $result->bind_result($foo);
-
-        if($result->fetch())
+        if($this->userID != -1)
         {
-            $user = new User($db);
-            $user->userID = $foo;
-            return $user;
-        }
+            $result = $this->dataBase->querry("SELECT user_firstname FROM users WHERE user_id = ?", "d", $this->userID);
+            $first;
 
+            $result->bind_result($first);
+
+            if($result->fetch())
+            {
+                return $first;
+            }
+        }
         return null;
     }
+
+    public function getLastName()
+    {
+        if($this->userID != -1)
+        {
+            $result = $this->dataBase->querry("SELECT user_lastname FROM users WHERE user_id = ?", "d", $this->userID);
+            $last;
+
+            $result->bind_result($last);
+
+            if($result->fetch())
+            {
+                return $last;
+            }
+        }
+        return null;
+    }
+
+    public function getEmail()
+    {
+        if($this->userID != -1)
+        {
+            $result = $this->dataBase->querry("SELECT email FROM users WHERE user_id = ?", "d", $this->userID);
+            $email;
+
+            $result->bind_result($email);
+
+            if($result->fetch())
+            {
+                return $email;
+            }
+        }
+        return null;
+    }
+
+
 
     public function getFullName()
     {
@@ -96,5 +149,21 @@ class User
     public function getId() : int
     {
         return $this->userID;
+    }
+
+    public function wijzigen($firstname, $lastname, $email)
+    {
+
+        $result = $this->dataBase->querry("SELECT * FROM users WHERE email = ?", "s", $email);
+        if($result->fetch())
+        {
+            //email exists
+            throw new Exception("Email is al ingebruik");
+        }
+        else
+        {
+            $result = $this->dataBase->querry("UPDATE users SET user_firstname= ?, user_lastname= ?, email= ? WHERE user_id =?", "sssd", $firstname, $lastname, $email, $this->userID);
+
+        }
     }
 }
