@@ -4,16 +4,19 @@
     height: 450px;
     background-color: lightgray;
     padding-left: 15px;
+    margin-top: 10px;
     box-shadow: 5px 6px 5px lightgrey;
     word-wrap: break-word;
     position: relative;
 }
+
 .ProductFoto
 {
     width: 190px;
     height: 190px;
     margin: 10px 5px 5px 5px;
     background: white;
+    object-fit: contain;
 }
 
 .ProductPrijs
@@ -35,6 +38,14 @@
     bottom: 10px;
 }
 
+@media (min-width: 768px)
+{
+    .col-md-4
+    {
+        flex:0;
+    }
+}
+/*
 
 .ProductWrapper
 {
@@ -43,19 +54,17 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-}
+}*/
 
 /*---------------------------------------------------------
   M E D I A   Q U E R I E S
 -----------------------------------------------------------*/
-
+/*
 @media only screen and (max-width: 800px)
 {
     .ProductWrapper
     {
-
         grid-template-columns: repeat(3, 1fr);
-
     }
 }
 
@@ -63,8 +72,6 @@
 {
     .ProductWrapper
     {
-
         grid-template-columns: repeat(2, 1fr);
-
     }
-}
+}*/
