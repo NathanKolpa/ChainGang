@@ -35,6 +35,23 @@ class User
         return null;
     }
 
+    public static function getUserByID($db, $id)
+    {
+        $result = $db->querry("SELECT user_id FROM users WHERE user_id = ?", "d", $id);
+
+        $foo = -1;
+        $result->bind_result($foo);
+
+        if($result->fetch())
+        {
+            $user = new User($db);
+            $user->userID = $foo;
+            return $user;
+        }
+
+        return null;
+    }
+
     public static function createNewUser(DataBase $db, string $firstName, string $lastName, string $password, string $email) : bool
     {
         //cannot use the same email
@@ -56,23 +73,6 @@ class User
             
             return true;
         }
-    }
-
-    public static function getUserByID($db, $id)
-    {
-        $result = $db->querry("SELECT user_id FROM users WHERE user_id = ?", "d", $id);
-
-        $foo = -1;
-        $result->bind_result($foo);
-
-        if($result->fetch())
-        {
-            $user = new User($db);
-            $user->userID = $foo;
-            return $user;
-        }
-
-        return null;
     }
 
     public function getFirstName()
@@ -126,23 +126,7 @@ class User
         return null;
     }
 
-    public function getAdres()
-    {
-        if($this->userID != -1)
-        {
-            $result = $this->dataBase->querry("SELECT street, housenumber FROM shipping_adress WHERE user_id = ?", "d", $this->userID);
-            $street;
-            $housenumber;
 
-            $result->bind_result($street, $housenumber);
-
-            if($result->fetch())
-            {
-                return $street . " " . $housenumber;
-            }
-        }
-        return null;
-    }
 
     public function getFullName()
     {
@@ -165,5 +149,21 @@ class User
     public function getId() : int
     {
         return $this->userID;
+    }
+
+    public function wijzigen($firstname, $lastname, $email)
+    {
+
+        $result = $this->dataBase->querry("SELECT * FROM users WHERE email = ?", "s", $email);
+        if($result->fetch())
+        {
+            //email exists
+            throw new Exception("Email is al ingebruik");
+        }
+        else
+        {
+            $result = $this->dataBase->querry("UPDATE users SET user_firstname= ?, user_lastname= ?, email= ? WHERE user_id =?", "sssd", $firstname, $lastname, $email, $this->userID);
+
+        }
     }
 }
