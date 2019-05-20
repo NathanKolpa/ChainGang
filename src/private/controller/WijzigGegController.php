@@ -32,7 +32,7 @@ class WijzigGegController extends PageController
             }
             catch (Exception $e)
             {
-                $error = $e->getMessage(); 
+                $error = $e->getMessage();
             }
 
 
