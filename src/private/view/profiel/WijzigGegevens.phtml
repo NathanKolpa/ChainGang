@@ -15,15 +15,15 @@
                     <form method="post" action="<?php config["CLASS_FOLDER"] . "WijzigGegController.php" ?>">
                         <tr>
                             <td class="col-sm-4">Voornaam</td>
-                            <td><input type="text" name="Voornaam" value="<?= $data["user"]->getFirstName()?>"></td>
+                            <td><input type="text" name="Voornaam" placeholder="<?= $data["user"]->getFirstName()?>"></td>
                         </tr>
                         <tr>
                             <td class="col-sm-4">Achternaam</td>
-                            <td><input type="text" name="Achternaam" value="<?= $data["user"]->getLastName()?>"></td>
+                            <td><input type="text" name="Achternaam" placeholder="<?= $data["user"]->getLastName()?>"></td>
                         </tr>
                         <tr>
                             <td class="col-sm-4">Email</td>
-                            <td><input type="email" name="Email" value="<?= $data["user"]->getEmail()?>"></td>
+                            <td><input type="email" name="Email" placeholder="<?= $data["user"]->getEmail()?>"></td>
                         </tr>
                         <tr>
                             <td class="col-sm-4"></td>
