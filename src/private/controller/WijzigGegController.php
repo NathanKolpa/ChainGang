@@ -18,13 +18,14 @@ class WijzigGegController extends PageController
     protected function getData(): array
     {
         $error = null;
-        if(isset($_POST["Voornaam"]) && isset($_POST["Achternaam"]) && isset($_POST["Email"]))
+        if(isset($_POST["Voornaam"]) || isset($_POST["Achternaam"]) || isset($_POST["Email"]))
         {
-            $firstName = $_POST["Voornaam"];
-            $lastName = $_POST["Achternaam"];
-            $email = $_POST["Email"];
-
             $usr = User::getUserByID($this->dataBase, $_SESSION["userid"]);
+
+            $firstName = isset($_POST["Voornaam"]) && $_POST["Voornaam"] != "" ? $_POST["Voornaam"] : $usr->getFirstName();
+            $lastName = isset($_POST["Achternaam"]) && $_POST["Achternaam"] != "" ? $_POST["Achternaam"] : $usr->getLastName();
+            $email = isset($_POST["Email"]) && $_POST["Email"] != "" ? $_POST["Email"] : $usr->getEmail();
+
 
             try
             {
