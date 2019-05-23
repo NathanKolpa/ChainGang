@@ -12,7 +12,11 @@ class CatogorieController extends PageController
 
     protected function getData() : array
     {
-        return array();
+
+        $cato = new Catogorie($this->dataBase, 1);
+        $arr = $cato->getProducts();
+
+        return array("producten" => $arr);
     }
 }
 

@@ -10,21 +10,14 @@
 
 
     <div class="row">
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
 
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
+        <?php
+        foreach ($data["producten"] as $product)
+        {
+            include config["TEMPLATE_FOLDER"] . "Product.phtml";
+        }
+        ?>
 
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
     </div>
 
 
