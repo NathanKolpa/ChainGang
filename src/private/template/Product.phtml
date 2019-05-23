@@ -1,8 +1,8 @@
 <div class="ProductBody col-md-4  mx-auto">
-    <img href="" type="image" src="img/Fiets.png" alt="fiets" class="ProductFoto">
+    <img href="" type="image" src="<?=$product->getImage()?>" alt="<?=$product->getName()?>" class="ProductFoto">
 
-    <h4>product name</h4>
-    <p class="ProductPrijs">€ 0,00</p>
+    <h4>product name <?=$product->getName()?></h4>
+    <p class="ProductPrijs">€ <?=$product->getPrijs()?></p>
     <p>product bechrijvings</p>
     <button name="veranderFoto" type="submit" class="ProductKnop" >voeg aan winkelwagen toe</button>
 
