@@ -1,0 +1,79 @@
+.ProductBody
+{
+    width: 228px;
+    height: 450px;
+    background-color: lightgray;
+    padding-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.ProductFoto
+{
+    width: 190px;
+    height: 190px;
+    margin: 10px 5px 5px 5px;
+    background: white;
+    object-fit: contain;
+    display: inline-block;
+    text-align: center;
+}
+
+.ProductPrijs
+{
+    padding-right:15px;
+}
+
+.ProductKnop
+{
+    width:190px;
+    height:40px;
+    margin: 5px;
+    display:block;
+    text-align:center;
+    background:#199ed8;
+    font-size:8pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 10px;
+}
+
+@media (min-width: 768px)
+{
+    .col-md-4
+    {
+        flex:0;
+    }
+}
+/*
+
+.ProductWrapper
+{
+    padding-top: 10px;
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}*/
+
+/*---------------------------------------------------------
+  M E D I A   Q U E R I E S
+-----------------------------------------------------------*/
+/*
+@media only screen and (max-width: 800px)
+{
+    .ProductWrapper
+    {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 480px)
+{
+    .ProductWrapper
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}*/

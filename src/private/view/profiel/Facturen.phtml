@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <?php include config["TEMPLATE_FOLDER"] . "Head.phtml" ?>
+        <link rel="stylesheet" href="css/Profiel.css">
+    </head>
+    <body>
+        <?php include config["TEMPLATE_FOLDER"] . "Header.phtml" ?>     <!--Import Header-->
+        <!--Content-->
+        <div class="row">
+            <?php include config["TEMPLATE_FOLDER"] . "ProfielSideBar.phtml" ?>
+
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Facturen</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <td><strong>Product</strong></td>
+                                        <td class="text-center"><strong>Prijs</strong></td>
+                                        <td class="text-center"><strong>Aantal</strong></td>
+                                        <td class="text-right"><strong>Totaal</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                    <tr>
+                                        <td>Gazelle 1</td>
+                                        <td class="text-center">499.99</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right">499.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gazelle 2</td>
+                                        <td class="text-center">1000.00</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right">1000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gazelle 5</td>
+                                        <td class="text-center">500.00</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right">500.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong>Sub totaal</strong></td>
+                                        <td class="no-line text-right">1999.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong></strong></td>
+                                        <td class="no-line text-right"><a href="#">Betalen</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <?php include config["TEMPLATE_FOLDER"] . "Footer.phtml" ?>     <!--Import Footer-->
+
+                </div>
+            </div>
+
+    </body>
+</html>

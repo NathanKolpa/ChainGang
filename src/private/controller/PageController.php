@@ -7,12 +7,14 @@ abstract class PageController extends Controller
     private $page;
     protected $dataBase;
     private $otherLoad = null;
+    private $reqLogin;
 
-    public function __construct($page, $title, $dataBase)
+    public function __construct($page, $title, $dataBase, $requiresLogin = false)
     {
         $this->title = $title;
         $this->page = $page;
         $this->dataBase = $dataBase;
+        $this->reqLogin = $requiresLogin;
     }
 
     protected function setPage($page)
@@ -28,17 +30,45 @@ abstract class PageController extends Controller
     abstract protected function getData() : array;
     public function createView()
     {
-        $otherData = $this->getData();
-
+        $otherData = null;
         $data = array
         (
             "title" => $this->title,
+            "base" => "",
+            "page" => $this->route
         );
 
-        if(isset($_SESSION["userid"]))
+        if(!isset($_SESSION["userid"]) && $this->reqLogin)
         {
-            $data["user"] = User::getUserByID($this->dataBase, $_SESSION["userid"]);
+            $this->otherLoad = "login?return=$this->route";
         }
+        else
+        {
+            $otherData = $this->getData();
+
+            //logout
+            if(isset($_GET["logout"]))
+            {
+                $_SESSION["userid"] = null;
+            }
+
+            if(isset($_SESSION["userid"]))
+            {
+                $data["user"] = User::getUserByID($this->dataBase, $_SESSION["userid"]);
+
+            }
+        }
+
+        //get the base url
+        $count = substr_count($this->route, '/');
+        for($i = 0; $i < $count; $i++)
+        {
+            $data["base"] .= "../";
+        }
+
+
+
+
 
         if($this->otherLoad == null)
         {
@@ -47,7 +77,7 @@ abstract class PageController extends Controller
         else
         {
             //redirect
-            header('Location: ' . $this->otherLoad, true, true ? 301 : 302);
+            header('Location: ' . $data["base"] . $this->otherLoad, false, true ? 301 : 302);
             exit();
         }
     }

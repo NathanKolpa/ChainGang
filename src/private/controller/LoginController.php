@@ -15,10 +15,10 @@ class LoginController extends PageController
 
         if(isset($_POST["email"]) && isset($_POST["password"]))
         {
-            $user = User::tryLogin($this->dataBase, $_POST["email"], $_POST["password"]);
-
-            if($user != null)
+            try
             {
+                $user = User::tryLogin($this->dataBase, $_POST["email"], $_POST["password"]);
+
                 $_SESSION["userid"] = $user->getId();
 
                 if(isset($_GET["return"]) && $_GET["return"] != "")
@@ -26,9 +26,9 @@ class LoginController extends PageController
                     $this->loadOtherPage($_GET["return"]);
                 }
             }
-            else
+            catch(Exception $e)
             {
-                $data["errorMsg"] = "Kan niet inloggen";
+                $data["error"] = $e->getMessage();   
             }
         }
 
