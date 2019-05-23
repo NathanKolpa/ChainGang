@@ -10,6 +10,7 @@ class product
     private $img;
     private $prijs;
     private $stock;
+    private $discription;
 
     private $name;
 
@@ -17,18 +18,19 @@ class product
     private $kleur;
     private $versnellingen;
 
-    public function __construct(DataBase $dataBase, $img, $prijs, $stock, $name)
+    public function __construct(DataBase $dataBase, $img, $prijs, $stock, $name, $discription)
     {
         $this->dataBase = $dataBase;
         $this->img = $img;
         $this->prijs = $prijs;
         $this->stock = $stock;
         $this->name = $name;
+        $this->discription = $discription;
     }
 
 
     public static function getProductByID($db, $ID)
-    {
+    {/*
         $result = $db->querry("SELECT * FROM product WHERE product_id = ?", "d", $ID);
 
 
@@ -52,7 +54,7 @@ class product
             //array_push($arr, $item);
         }
         //return $arr;
-        throw new Exception("product niet gevonden");
+        throw new Exception("product niet gevonden");*/
     }
 
 
@@ -93,8 +95,9 @@ class product
         return $this->img;
     }
 
-    public function getCatogorie()
+    public function getDiscription()
     {
+        return $this->discription;
     }
 
 
@@ -110,7 +113,7 @@ class product
     }
 
 
-    public function setId($id) : int
+    public function setId($id)
     {
         $this->productID = $id;
     }
@@ -125,7 +128,7 @@ class product
         $this->prijs = $prijs;
     }
 
-    public function setStock($stock) : int
+    public function setStock($stock)
     {
         $this->stock = $stock;
     }

@@ -22,7 +22,7 @@ public function getProducts() : array
         while($row = $results->fetch_assoc())
         {
             // hier wordt een object gemaakt van Product
-            $item = new Product($this->dataBase, $row["foto_url"],$row["product_price"], $row["product_stock"], $row["product_name"]);
+            $item = new Product($this->dataBase, $row["foto_url"],$row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"]);
 
             array_push($arr, $item);
         }
