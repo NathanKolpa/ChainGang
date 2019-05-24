@@ -4,8 +4,8 @@
     height: 450px;
     background-color: lightgray;
     padding-left: 15px;
-    margin-top: 10px;
-    box-shadow: 5px 6px 5px lightgrey;
+    margin-top: 5px;
+    margin-bottom: 5px;
     word-wrap: break-word;
     position: relative;
 }
@@ -17,6 +17,8 @@
     margin: 10px 5px 5px 5px;
     background: white;
     object-fit: contain;
+    display: inline-block;
+    text-align: center;
 }
 
 .ProductPrijs

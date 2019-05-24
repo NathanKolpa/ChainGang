@@ -19,10 +19,19 @@ class DataBase
 
     public function querry(string $querry, string $types, &...$params) : mysqli_stmt
     {
-        $statement = $this->dbConnection->prepare($querry);
-        $statement->bind_param($types, ...$params);
-        $statement->execute();
-        return $statement;
-
+        if($statement = $this->dbConnection->prepare($querry))
+        {
+            if($types != "")
+            {
+                $statement->bind_param($types, ...$params);
+            }
+            $statement->execute();
+            return $statement;
+        }
+        else
+        {
+            printf("Error: %s.\n", $this->dbConnection->error);
+            return null;
+        }
     }
 }

@@ -10,21 +10,22 @@
 
 
     <div class="row">
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
 
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
+        <?php
+        if(!isset($data["searchError"]))
+        {
+            foreach ($data["producten"] as $product)
+            {
+                include config["TEMPLATE_FOLDER"] . "Product.phtml";
+            }
+        }
+        else
+        {
+            echo "<h1>" . $data["searchError"] . "</h1>";
+        }
 
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
+        ?>
 
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
-
-        <?php include config["TEMPLATE_FOLDER"] . "Product.phtml";?>
     </div>
 
 
