@@ -9,18 +9,21 @@
 }
 
 
-.footer {
+.footer
+{
     background: #199ed8 !important;
     color: white !important;
     text-align: center;
     line-height: 30px;
 }
 
-.footer a {
+.footer a
+{
     color: white !important;
 
 }
-.foot_text {
+.foot_text
+{
     width: 70%;
     line-height: 25px;
 

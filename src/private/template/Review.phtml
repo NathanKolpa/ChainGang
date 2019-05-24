@@ -2,20 +2,20 @@
 <?php
 ?>
 
-<div class="Review">
-    <div class="ReviewVote">
-        <i onclick="voteButton(this)" id="up_<?=$reviewObject->getId()?>" class="Arrow Up"></i>
-        <p id="count_<?=$reviewObject->getId()?>"><?=$reviewObject->getKarma()?></p>
-        <i onclick="voteButton(this)" id="down_<?=$reviewObject->getId()?>" class="Arrow Down"></i>
-    </div>
-    <div class="ReviewContent">
-        <div class="ReviewHeader">
-            <div>
-                <h2><?=$reviewObject->getTitle()?></h2>
-                <h3><?=$reviewObject->getScore()?>/10</h3>
-            </div>
-            <p>Door: <?=$reviewObject->getAuthor()->getName()?><br><b><?=$reviewObject->getDateText()?></b></p>
-        </div>
-        <p><?=$reviewObject->getText()?></p>
-    </div>
+<div class="col-12" style="border-top: 1px solid gray">
+    <p class="h3">title</p>
+    <p>content</p>
+    <ul class="list-inline" style="border-bottom: solid 1px gray">
+        <li class="list-inline-item">
+            <i class="fa fa-arrow-up"></i>
+        </li>
+
+        <li class="list-inline-item">
+            <p>0</p>
+        </li>
+
+        <li class="list-inline-item">
+            <i class="fa fa-arrow-down"></i>
+        </li>
+    </ul>
 </div>

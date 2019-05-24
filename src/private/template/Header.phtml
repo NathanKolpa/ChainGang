@@ -12,7 +12,7 @@
                         <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Catogorien</a>
+                        <a class="nav-link" href="catogorie">Catogorien</a>
                     </li>
                 </ul>
 
@@ -35,11 +35,11 @@
                     ?>
                 </div>
 
-                <form class="form-inline">
+                <form class="form-inline" id="search_" action="catogorie" method="GET">
                     <div class="input-group">
-                        <input type="text" class="form-control border-dark" placeholder="Search">
+                        <input type="text" class="form-control border-dark" name="search" placeholder="Search">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                            <button class="btn btn-outline-secondary" form="search_" type="submit"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </form>

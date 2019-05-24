@@ -30,9 +30,16 @@ class User
                 $usr->userID = $uID;
                 return $usr;
             }
+            else
+            {
+                throw new Exception("Wachtwoord is niet correct");
+            }
+        }
+        else
+        {
+            throw new Exception("Gebruiker niet gevonden");
         }
 
-        return null;
     }
 
     public static function getUserByID($db, $id)
@@ -48,18 +55,20 @@ class User
             $user->userID = $foo;
             return $user;
         }
+        else
+        {
+            throw new Exception("User not found");
+        }
 
-        return null;
     }
 
-    public static function createNewUser(DataBase $db, string $firstName, string $lastName, string $password, string $email) : bool
+    public static function createNewUser(DataBase $db, string $firstName, string $lastName, string $password, string $email)
     {
         //cannot use the same email
         $result = $db->querry("SELECT * FROM users WHERE email = ?", "s", $email);
         if($result->fetch())
         {
-            //email exists
-            return false;
+            throw new Exception("Email al in gebruik");
         }
         else
         {
@@ -69,9 +78,12 @@ class User
             );
             $passwordHash = password_hash($password, PASSWORD_BCRYPT, $options) . "";
 
+            $firstName = strip_tags($firstName);
+            $lastName = strip_tags($lastName);
+            $email = strip_tags($email);
+
             $result = $db->querry("INSERT INTO users(pwd_hash, user_firstname, user_lastname, email) VALUES( ? , ? , ? , ? )", "ssss", $passwordHash, $firstName, $lastName, $email);   
             
-            return true;
         }
     }
 
@@ -153,8 +165,8 @@ class User
 
     public function wijzigen($firstname, $lastname, $email)
     {
+        $result = $this->dataBase->querry("SELECT * FROM users WHERE email = ? AND user_id != ?", "sd", $email, $this->userID);
 
-        $result = $this->dataBase->querry("SELECT * FROM users WHERE email = ?", "s", $email);
         if($result->fetch())
         {
             //email exists
@@ -162,6 +174,10 @@ class User
         }
         else
         {
+            $firstname = strip_tags($firstname);
+            $lastname = strip_tags($lastname);
+            $email = strip_tags($email);
+
             $result = $this->dataBase->querry("UPDATE users SET user_firstname= ?, user_lastname= ?, email= ? WHERE user_id =?", "sssd", $firstname, $lastname, $email, $this->userID);
 
         }
