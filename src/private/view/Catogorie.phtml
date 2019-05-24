@@ -12,10 +12,18 @@
     <div class="row">
 
         <?php
-        foreach ($data["producten"] as $product)
+        if(!isset($data["searchError"]))
         {
-            include config["TEMPLATE_FOLDER"] . "Product.phtml";
+            foreach ($data["producten"] as $product)
+            {
+                include config["TEMPLATE_FOLDER"] . "Product.phtml";
+            }
         }
+        else
+        {
+            echo "<h1>" . $data["searchError"] . "</h1>";
+        }
+
         ?>
 
     </div>

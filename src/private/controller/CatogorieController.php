@@ -12,11 +12,27 @@ class CatogorieController extends PageController
 
     protected function getData() : array
     {
+        $arr = array();
+        $searchError = null;
+        if(isset($_GET["search"]))
+        {
+            try
+            {
+                $catogorie = Catogorie::searchCatogorieByName($this->dataBase, $_GET["search"]);
+                $arr = $catogorie->getProducts();
+            }
+            catch(Exception $e)
+            {
+                $searchError = $e->getMessage();
+            }
+        }
+        else
+        {
+            $arr = Catogorie::getAllProducts($this->dataBase);
+        }
 
-        $cato = new Catogorie($this->dataBase, 1);
-        $arr = $cato->getProducts();
 
-        return array("producten" => $arr);
+        return array("producten" => $arr, "searchError" =>$searchError);
     }
 }
 
