@@ -13,7 +13,7 @@ class Review
     private $title;
 
     //date as object not string
-    public function __construct(int $id, User $author, string $title, string $text, DateTime $date, float $score, int $karma)
+    private function __construct(int $id, User $author, string $title, string $text, DateTime $date, float $score, int $karma)
     {
         $this->id = $id;
         $this->author = $author;

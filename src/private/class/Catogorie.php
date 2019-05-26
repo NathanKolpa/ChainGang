@@ -5,7 +5,7 @@ class Catogorie
     private $dataBase;
     private $catogorieID;
 
-    public function __construct($db, $id)
+    private function __construct($db, $id)
     {
         $this->dataBase = $db;
         $this->catogorieID = $id;
