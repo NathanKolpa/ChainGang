@@ -6,7 +6,7 @@ class User
     private $isLoggedIn = false;
     private $userID = -1;
 
-    public function __construct(DataBase $dataBase)
+    private function __construct(DataBase $dataBase)
     {
         $this->dataBase = $dataBase;
     }
