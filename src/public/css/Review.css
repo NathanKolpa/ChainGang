@@ -8,6 +8,7 @@
     border-top: 0px;
     display: flex;
     padding: 10px;
+    text-align: left;
 }
 
 .Review:first-of-type
