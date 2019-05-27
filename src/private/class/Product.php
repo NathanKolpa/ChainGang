@@ -18,7 +18,7 @@ class product
     private $kleur;
     private $versnellingen;
 
-    private function __construct(DataBase $dataBase, $img, $prijs, $stock, $name, $discription)
+    public function __construct(DataBase $dataBase, $img, $prijs, $stock, $name, $discription)
     {
         $this->dataBase = $dataBase;
         $this->img = $img;

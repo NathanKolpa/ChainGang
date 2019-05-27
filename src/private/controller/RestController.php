@@ -19,20 +19,23 @@ class RestController extends Controller
             {
                 case "vote":
                     {
-                        try
+                        if(isset($_SESSION["userid"]))
                         {
-                            $user = User::getUserByID($this->dataBase, $_SESSION["userid"]);
-                            $review = Review::getReviewById($this->dataBase, $_POST["review_id"]);
-
-                            $review->vote($user, $_POST["is_up"] == "true" ? true : false);
-
-                            $arr = array("status" =>":)");
-                            echo json_encode($arr);
-                        }
-                        catch(Exception $e)
-                        {
-                            $arr = array("error" => $e->getMessage());
-                            echo json_encode($arr);
+                            try
+                            {
+                                $user = User::getUserByID($this->dataBase, $_SESSION["userid"]);
+                                $review = Review::getReviewById($this->dataBase, $_POST["review_id"]);
+    
+                                $review->vote($user, $_POST["is_up"] == "true" ? true : false);
+    
+                                $arr = array("status" =>":)");
+                                echo json_encode($arr);
+                            }
+                            catch(Exception $e)
+                            {
+                                $arr = array("error" => $e->getMessage());
+                                echo json_encode($arr);
+                            }
                         }
                     }
                     break;
