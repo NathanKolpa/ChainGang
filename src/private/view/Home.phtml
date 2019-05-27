@@ -3,6 +3,7 @@
     <head>
         <?php include config["TEMPLATE_FOLDER"] . "Head.phtml" ?>
         <script src="js/Review.js"></script>
+        <link href="css/Product.css" rel="stylesheet">
     </head>
     <body>
 
@@ -34,6 +35,15 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+        </div>
+        <div>
+
+            <?php
+            $product = new Product(null , '', 23, 213, "sadf", 'sdf');
+                include config["TEMPLATE_FOLDER"] . "Product.phtml";
+
+                ?>     <!--Import Footer-->
+
         </div>
 
         <!--Einde Content-->
