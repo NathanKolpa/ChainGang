@@ -2,6 +2,8 @@
 
 abstract class Controller
 {
+
+
     /**
      * @param viewFile het bestand dat wordt geladen
      * @param data alle variablen die het view file kan gebruiken
@@ -15,5 +17,13 @@ abstract class Controller
      * deze methode wordt aangeroepen om een view aan te maken
      * in deze functie moet je loadview aanroepen
      */
-    abstract public function createView();
+    abstract protected function createView();
+
+    protected $route;
+
+    public function start($route)
+    {
+        $this->route = $route;
+        $this->createView();
+    }
 }

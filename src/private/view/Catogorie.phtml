@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <?php include config["TEMPLATE_FOLDER"] . "Head.phtml" ?>
+    <link rel="stylesheet" href="css/Product.css">
+</head>
+<body>
+<?php include config["TEMPLATE_FOLDER"] . "Header.phtml" ?>     <!--Import Header-->
+<!--Content-->
+
+
+    <div class="row">
+
+        <?php
+        if(!isset($data["searchError"]))
+        {
+            foreach ($data["producten"] as $product)
+            {
+                include config["TEMPLATE_FOLDER"] . "Product.phtml";
+            }
+        }
+        else
+        {
+            echo "<h1>" . $data["searchError"] . "</h1>";
+        }
+
+        ?>
+
+    </div>
+
+
+<!--Einde Content-->
+<?php include config["TEMPLATE_FOLDER"] . "Footer.phtml" ?>     <!--Import Footer-->
+</body>
+</html>
