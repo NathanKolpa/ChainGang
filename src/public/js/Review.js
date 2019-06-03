@@ -1,6 +1,24 @@
 function vote(commentID, isUp)
 {
-
+    $.ajax
+    ({
+        url: '__REST__', //This is the current doc
+        type: "POST",
+        dataType:'json', // add json datatype to get json
+        data: 
+        ({
+                request_type: "vote",
+                review_id: commentID,
+                is_up: isUp
+        }),
+        success: function(data)
+        {
+            console.log(data);
+        },
+        fail: function(xhr, textStatus, errorThrown){
+            console.log("Fail: " + errorThrown)
+         }
+   });  
 }
 
 function removeVote(commentID)
@@ -41,8 +59,7 @@ function voteButton(button)
         {
             changeVoteText(commentID, 1);
         }
-        //remove vote
-        removeVote(parseInt(commentID));
+        vote(parseInt(commentID), type == "up" ? true : false);
     }
     else
     {

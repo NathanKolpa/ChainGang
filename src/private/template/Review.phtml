@@ -1,20 +1,39 @@
-
 <?php
+$votedUp = false;
+$votedDown = false;
+
+if(isset($data["user"]))
+{
+    $isUP;
+    if($review->hasUserVoted($data["user"], $isUP))
+    {
+        if($isUP)
+        {
+            $votedUp = true;
+        }
+        else
+        {
+            $votedDown = true;
+        }
+    }
+}
+
 ?>
 
 <div class="col-12" style="border-top: 1px solid gray">
-    <p class="h3">title</p>
-    <p>content</p>
+    <p class="h3"><?=$review->getTitle()?></p>
+    <p><?=$review->getText()?></p>
     <ul class="list-inline" style="border-bottom: solid 1px gray">
-        <li class="list-inline-item">
+
+        <li class="list-inline-item <?=$votedUp? "VoteSelected" : "" ?>" onclick="voteButton(this)" id="up_<?=$review->getId()?>">
             <i class="fa fa-arrow-up"></i>
         </li>
 
-        <li class="list-inline-item">
-            <p>0</p>
+        <li class="list-inline-item" id="count_<?=$review->getId()?>">
+            <p><?=$review->getKarma()?></p>
         </li>
 
-        <li class="list-inline-item">
+        <li class="list-inline-item <?=$votedDown? "VoteSelected" : "" ?>" onclick="voteButton(this)" id="down_<?=$review->getId()?>">
             <i class="fa fa-arrow-down"></i>
         </li>
     </ul>
