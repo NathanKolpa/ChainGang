@@ -28,6 +28,33 @@ class product
         $this->discription = $discription;
     }
 
+    public static function getLatestProducts($db, $limit) : array
+    {
+        $result = $db->querry("SELECT TOP 8 * FROM product ORDER BY Date DESC");
+
+
+        $results = $result->get_result();
+
+        //$arr = array();
+        if($row = $results->fetch_assoc())
+        {
+            // hier wordt een object gemaakt van Product
+            $item = new Product($db);
+
+            // en worden de private waardes met de database feld gevult
+            $item->productID = $row["product_id"];
+            $item->name = $row["product_name"];
+            $item->prijs = $row["product_price"];
+            $item->stock = $row["product_stock"];
+            $item->img = $row["foto_url"];
+            $item->catogorie = $row["product_catogorie"];
+
+            return $item;
+            //array_push($arr, $item);
+        }
+        //return $arr;
+        throw new Exception("product niet gevonden");
+    }
 
     public static function getProductByID($db, $ID)
     {/*

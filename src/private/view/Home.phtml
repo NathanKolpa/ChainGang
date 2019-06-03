@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -73,34 +75,40 @@
 
 <div class="row">
 
-    <?php
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+<?php
+    product::getLatestProducts("chaingang", 8)
 
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+?>
 
 
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
-
-
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
-
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
-
-
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
-
-
-    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
-    include config["TEMPLATE_FOLDER"] . "Product.phtml";
-    ?>
+<!--    --><?php
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//
+//
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//
+//
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//
+//
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//
+//
+//    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
+//    include config["TEMPLATE_FOLDER"] . "Product.phtml";
+//    ?>
 </div>
 <!--Import Footer-->
 </div>
@@ -112,14 +120,7 @@
     </div>
     <br>
   <div class="row">
-  <?php
-  require_once config["CLASS_FOLDER"] . "Review.php";
-  $review = new Review(1, null, 'winkel vol homoseksuelen', "haha deze flikkers waren gay",  new DateTime(), "2", "3");
-    include config["TEMPLATE_FOLDER"] . "Review.phtml";
 
-
-
-  ?>
   </div>
   </div>
 <br>

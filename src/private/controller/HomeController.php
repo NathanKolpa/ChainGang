@@ -7,10 +7,18 @@ class HomeController extends PageController
     public function __construct($db)
     {
         parent::__construct("Home.phtml", "Home", $db);
+
     }
 
     protected function getData() : array
     {
-        return array();
+        return array("test" => "flikker op");
     }
+
+#
+
+
+
+
 }
+
