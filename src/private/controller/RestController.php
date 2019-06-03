@@ -39,6 +39,29 @@ class RestController extends Controller
                         }
                     }
                     break;
+
+                case "sub":
+                    {
+                        try {
+                            $sub = new Subscribe($this->dataBase);
+                            $sub->schrijfIn($this->dataBase, $_POST['email']);
+
+                            $arr = array("status" => ":)");
+                            echo json_encode($arr);
+
+                            unset($sub);
+
+                            echo 'ik heb de email in de controller';
+                        }
+                        catch(Exception $e)
+                        {
+                            $arr = array("error" => $e->getMessage());
+                            echo json_encode($arr);
+
+                            echo 'error in controller';
+                        }
+                    }
+                    break;
             }
         }
         else
