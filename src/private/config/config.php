@@ -26,7 +26,7 @@ require_once config["CLASS_FOLDER"] . "User.php";
 
 require_once config["CLASS_FOLDER"] . "Product.php";
 require_once config["CLASS_FOLDER"] . "Catogorie.php";
-require_once config["CLASS_FOLDER"] . "Subscribe.php";
+require_once config["CLASS_FOLDER"] . "NewsLetter.php";
 require_once config["CLASS_FOLDER"] . "Detail.php";
 
 //define global database variable

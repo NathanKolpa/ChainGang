@@ -71,8 +71,7 @@ class RestController extends Controller
                 case "sub":
                     {
                         try {
-                            $sub = new Subscribe($this->dataBase);
-                            $sub->schrijfIn($this->dataBase, $_POST['email']);
+                            NewsLetter::schrijfIn($this->dataBase, $_POST['email']);
 
                             $arr = array("status" => ":)");
                             echo json_encode($arr);
