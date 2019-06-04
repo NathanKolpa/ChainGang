@@ -28,3 +28,58 @@
     line-height: 25px;
 
 }
+
+.fietsen {
+    text-align: center
+}
+
+.catagorien {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.textOnImage {
+    color: #199ed8;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.fietsImgHome {
+    opacity: 0.8;
+}
+
+.row-line {
+    opacity: 0.8;
+    width: 100%;
+    text-align: center;
+}
+
+.blue-line {
+    background-color: #199ed8 !important;
+    color: white;
+}
+
+.carousel-item{
+padding-left: 20%
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: grey;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
+}
+.carousel-indicators .active {
+    width: 28px;
+    height: 28px;
+    margin: 10px;
+    background-color: #199ed8;
+}
+

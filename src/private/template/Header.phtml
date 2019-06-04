@@ -11,12 +11,66 @@
                     <li class="nav-item">
                         <a class="nav-link" href="home">Home</a>
                     </li>
+                    <div class="dropdown" style="margin-top: 8px; margin-left: 10px" >
+                        <a class="btndropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Catogorie
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" style="color: black !important;" href="catogorie?cat=man">Man</a>
+                            <a class="dropdown-item" style="color: black !important;" href="catogorie?cat=vrouw">Vrouw</a>
+                            <a class="dropdown-item" style="color: black !important;"  href="catogorie?cat=kind">Kind<Vrouw
+                        </div>
+                    </div>
                     <li class="nav-item">
-                        <a class="nav-link" href="catogorie">Catogorien</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" >subcribe</a>
                     </li>
                 </ul>
 
+
+                <div class="dropdown">
+                    <button class="dropdown-toggle" onclick="showCart()" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 20px; border: 0; background-color: #199ed8; color: white;">
+                        Winkel Wagen
+                    </button>
+                    <div class="dropdown-menu" id="cart" aria-labelledby="dropdownMenuButton">
+                    </div>
+                </div>
+
+                <!-- Modal voor inschrijven van nieuwsbrief-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">subcribe</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form  method="POST" class="ajax">
+                                    <?php
+                                    if(!isset($data["user"]))
+                                    { ?>
+                                    <div class="form-group">
+                                        <label for="InputSubcribeEmail">subcribe</label>
+                                        <input name="email" type="email" class="form-control" id="InputSubcribeEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                                    </div>
+                                    <?php
+                                    } ?>
+                                    <div class="modal-footer">
+                                        <button onclick="kaas()" type="submit" class="btn btn-primary">subcribe</button>
+                                    </div>
+                                </form>
+                                <script src="js/Subscribe.js"></script>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- einde model-->
+
+
                 <div class="navbar-text" style="margin-right: 20px">
+
                     <?php
                         if(isset($data["user"]))
                         {

@@ -1,12 +1,14 @@
 <?php
 
+
+require_once config["CLASS_FOLDER"] . "NewsLetter.php";
 class User
 {
     private $dataBase;
     private $isLoggedIn = false;
     private $userID = -1;
 
-    public function __construct(DataBase $dataBase)
+    private function __construct(DataBase $dataBase)
     {
         $this->dataBase = $dataBase;
     }
@@ -82,8 +84,15 @@ class User
             $lastName = strip_tags($lastName);
             $email = strip_tags($email);
 
-            $result = $db->querry("INSERT INTO users(pwd_hash, user_firstname, user_lastname, email) VALUES( ? , ? , ? , ? )", "ssss", $passwordHash, $firstName, $lastName, $email);   
+            $allowSpam = NewsLetter::emailBestaat($db, $email) ? 1 : 0;
+
+            $result = $db->querry("INSERT INTO users(pwd_hash, user_firstname, user_lastname, email, allow_newsletters) VALUES( ? , ? , ? , ?, ?)", "ssssi", $passwordHash, $firstName, $lastName, $email, $allowSpam);
             
+            if($allowSpam)
+            {
+                NewsLetter::schrijfUit($db, $email);
+            }
+
         }
     }
 

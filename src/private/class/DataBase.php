@@ -17,7 +17,7 @@ class DataBase
         }
     }
 
-    public function querry(string $querry, string $types, &...$params) : mysqli_stmt
+    public function querry(string $querry, string $types, ...$params) : mysqli_stmt
     {
         if($statement = $this->dbConnection->prepare($querry))
         {
