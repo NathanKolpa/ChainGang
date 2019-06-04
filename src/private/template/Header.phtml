@@ -1,6 +1,5 @@
 <div class="container border">
 
-
 <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
             <a class="navbar-brand" href="home"><img height="50" src="img/Fiets.png"></a>
@@ -20,6 +19,15 @@
                         <a class="nav-link" data-toggle="modal" data-target="#exampleModal" >subcribe</a>
                     </li>
                 </ul>
+
+
+                <div class="dropdown">
+                    <button class="dropdown-toggle" onclick="showCart()" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 20px; border: 0; background-color: #199ed8; color: white;">
+                        Winkel Wagen
+                    </button>
+                    <div class="dropdown-menu" id="cart" aria-labelledby="dropdownMenuButton">
+                    </div>
+                </div>
 
                 <!-- Modal voor inschrijven van nieuwsbrief-->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,6 +59,7 @@
 
 
                 <div class="navbar-text" style="margin-right: 20px">
+
                     <?php
                         if(isset($data["user"]))
                         {
