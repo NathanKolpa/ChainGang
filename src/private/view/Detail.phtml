@@ -8,22 +8,23 @@
 
         <?php include config["TEMPLATE_FOLDER"] . "Header.phtml" ?> <!--Import Header-->
         <!--Content-->
+
         <div class="containter">
             <div class="row">
-                <div class="mx-auto"><img class="prodFoto" src="img/Fiets.png"></div>
+                <div class="mx-auto"><img class="prodFoto" alt="<?= $data["item"]->getName()?>" src="<?= $data["item"]->getImage()?>"></div>
             </div>
             <div class="row">
-                <div class="mx-auto"><h4>Naam van de fiets</h4></div>
+                <div class="mx-auto"><h4>Naam van de fiets <?= $data["item"]->getName()?></h4></div>
             </div>
 
             <div class="row">
                 <div class="col-md-4"></div>
-                <div class="col-md-3"><b>599.99</b></div>
+                <div class="col-md-3"><b>€ 599.99 <?= $data["item"]->getPrijs()?></b></div>
                 <div class="col-md-4"><button>Voeg toe</button></div>
             </div>
 
             <div class="row">
-                <div class="mx-auto"><p>De omschrijving van de fiets dit is een iets langere tekst</p></div>
+                <div class="mx-auto"><p>De omschrijving van de fiets dit is een iets langere tekst <?= $data["item"]->getDiscription()?></p></div>
             </div>
             <div class="row">
                 <table class="mx-auto">

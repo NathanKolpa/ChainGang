@@ -39,10 +39,10 @@ class RestController extends Controller
                         }
                     }
                     break;
+                
                 case "cartGet":
                     {
                         $arr = json_decode($_COOKIE["products"]);
-
                         $returnHTML = "";
                         $index = 0;
                         foreach($arr as $prodID)
@@ -62,11 +62,32 @@ class RestController extends Controller
                                     "</li>".
                                 "</ul>" .
                             "</div>";
-
                             $index++;
                         }
-
                         echo json_encode($returnHTML);
+                    }
+                    break;
+
+                case "sub":
+                    {
+                        try {
+                            $sub = new Subscribe($this->dataBase);
+                            $sub->schrijfIn($this->dataBase, $_POST['email']);
+
+                            $arr = array("status" => ":)");
+                            echo json_encode($arr);
+
+                            unset($sub);
+
+                            echo 'ik heb de email in de controller';
+                        }
+                        catch(Exception $e)
+                        {
+                            $arr = array("error" => $e->getMessage());
+                            echo json_encode($arr);
+
+                            echo 'error in controller';
+                        }
                     }
                     break;
             }
