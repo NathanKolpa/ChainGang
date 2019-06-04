@@ -5,7 +5,7 @@ class Catogorie
     private $dataBase;
     private $catogorieID;
 
-    public function __construct($db, $id)
+    private function __construct($db, $id)
     {
         $this->dataBase = $db;
         $this->catogorieID = $id;
@@ -21,7 +21,7 @@ class Catogorie
         while($row = $results->fetch_assoc())
         {
             // hier wordt een object gemaakt van Product
-            $item = new Product($this->dataBase, $row["foto_url"],$row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"]);
+            $item = new Product($this->dataBase, $row["product_id"], $row["foto_url"],$row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"]);
 
             array_push($arr, $item);
         }
@@ -39,7 +39,7 @@ class Catogorie
         while($row = $results->fetch_assoc())
         {
             // hier wordt een object gemaakt van Product
-            $item = new Product($db, $row["foto_url"],$row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"]);
+            $item = new Product($db, $row["product_id"], $row["foto_url"],$row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"]);
 
             array_push($arr, $item);
         }
