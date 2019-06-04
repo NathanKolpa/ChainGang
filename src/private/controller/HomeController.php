@@ -15,9 +15,10 @@ class HomeController extends PageController
     {
 
         $newProds = Product::getLatestProducts($this->dataBase, 12);
-        $newRevs = Review::getLatestReviews($this->dataBase, 3);
+        $newRevs = Review::getHomeReviews($this->dataBase, 7);
 
-        return array("newReviews => $newRevs", "newProducs" => $newProds);
+
+        return array("reviews" => $newRevs, "producten" => $newProds);
     }
 
 
