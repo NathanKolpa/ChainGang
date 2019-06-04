@@ -1,5 +1,5 @@
 <?php
-
+require_once config["CLASS_FOLDER"] . "Review.php";
 require_once config["CONTROLLER_FOLDER"] . "PageController.php";
 
 class HomeController extends PageController
@@ -12,7 +12,12 @@ class HomeController extends PageController
 
     protected function getData() : array
     {
-        return array("test" => "flikker op");
+
+        $newProds = Product::getLatestProducts($this->dataBase, 12);
+        $newRevs = Review::getLatestReviews($this->dataBase, 3);
+
+        return array("newProducs" => $newProds);
+        return array("newReviews => $newRevs");
     }
 
 #

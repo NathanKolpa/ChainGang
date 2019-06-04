@@ -74,12 +74,12 @@
 
 
 <div class="row">
-
 <?php
-    product::getLatestProducts("chaingang", 8)
-
+    foreach ($data["newProducs"] as $product)
+    {
+        include config["TEMPLATE_FOLDER"]. "Product.phtml";
+    }
 ?>
-
 
 <!--    --><?php
 //    $product = new Product(null, '', 23, 213, "sadf", 'sdf');
@@ -120,7 +120,12 @@
     </div>
     <br>
   <div class="row">
-
+      <?php
+      foreach ($data["newProducs"] as $product)
+      {
+          include config["TEMPLATE_FOLDER"]. "Review.phtml";
+      }
+      ?>
   </div>
   </div>
 <br>
