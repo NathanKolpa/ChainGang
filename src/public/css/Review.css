@@ -48,35 +48,5 @@
 
 .VoteSelected
 {
-    border: solid blue;
-}
-
-.Arrow, .VoteSelected
-{
-    border-width: 0 5px 5px 0;
-}
-
-.ReviewVote
-{
-    text-align: center;
-    padding: 10px
-}
-
-
-.ReviewVote p
-{
-    margin: 0;
-    font-size: 24px;
-}
-
-.Up
-{
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-}
-
-.Down
-{
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    color: #199ed8 !important;
 }

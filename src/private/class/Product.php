@@ -20,6 +20,7 @@ class product
 
     public function __construct( $dataBase, $img, $prijs, $stock, $name, $discription)
     {
+        $this->productID = $id;
         $this->dataBase = $dataBase;
         $this->img = $img;
         $this->prijs = $prijs;
@@ -49,7 +50,7 @@ class product
         return $array;}
 
     public static function getProductByID($db, $ID)
-    {/*
+    {
         $result = $db->querry("SELECT * FROM product WHERE product_id = ?", "d", $ID);
 
 
@@ -59,21 +60,14 @@ class product
         if($row = $results->fetch_assoc())
         {
             // hier wordt een object gemaakt van Product
-            $item = new Product($db);
+            $item = new Product($db, $row["product_id"], $row["foto_url"], $row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"]);
 
-            // en worden de private waardes met de database feld gevult
-            $item->productID = $row["product_id"];
-            $item->name = $row["product_name"];
-            $item->prijs = $row["product_price"];
-            $item->stock = $row["product_stock"];
-            $item->img = $row["foto_url"];
-            $item->catogorie = $row["product_catogorie"];
 
             return $item;
             //array_push($arr, $item);
         }
         //return $arr;
-        throw new Exception("product niet gevonden");*/
+        throw new Exception("product niet gevonden");
     }
 
 

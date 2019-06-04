@@ -1,6 +1,7 @@
 <?php
 require_once config["CLASS_FOLDER"] . "Review.php";
 require_once config["CONTROLLER_FOLDER"] . "PageController.php";
+require_once config["CLASS_FOLDER"] . "Review.php";
 
 class HomeController extends PageController
 {
@@ -16,11 +17,8 @@ class HomeController extends PageController
         $newProds = Product::getLatestProducts($this->dataBase, 12);
         $newRevs = Review::getLatestReviews($this->dataBase, 3);
 
-        return array("newProducs" => $newProds);
-        return array("newReviews => $newRevs");
+        return array("newReviews => $newRevs", "newProducs" => $newProds);
     }
-
-#
 
 
 
