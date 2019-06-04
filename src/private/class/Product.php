@@ -18,7 +18,7 @@ class product
     private $kleur;
     private $versnellingen;
 
-    public function __construct(DataBase $dataBase, $id, $img, $prijs, $stock, $name, $discription)
+    public function __construct( $dataBase, $img, $prijs, $stock, $name, $discription)
     {
         $this->productID = $id;
         $this->dataBase = $dataBase;
@@ -29,6 +29,25 @@ class product
         $this->discription = $discription;
     }
 
+    public static function getLatestProducts($db, $limit) : array
+    {
+        $array = array();
+        $result = $db->querry("SELECT * FROM product ORDER BY date_added DESC LIMIT ?", "i", $limit);
+
+
+        $results = $result->get_result();
+
+        //$arr = array();
+        while($row = $results->fetch_assoc())
+        {
+            // hier wordt een object gemaakt van Product
+            $item = new Product($db, $row["foto_url"], $row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"] );
+
+            array_push($array, $item);
+        }
+
+
+        return $array;}
 
     public static function getProductByID($db, $ID)
     {

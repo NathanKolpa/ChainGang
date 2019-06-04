@@ -1,3 +1,51 @@
+.Review
+{
+    width: 100%;
+    height: auto;
+    border: 2px solid gray;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    display: flex;
+    padding: 10px;
+    text-align: left;
+}
+
+.Review:first-of-type
+{
+    border-top: 2px solid gray;
+}
+
+.ReviewHeader h3, h2
+{
+    float: left;
+    margin: 0px;
+    margin-right: 10px
+}
+
+.ReviewHeader p
+{
+    margin: 0;
+}
+
+
+.ReviewHeader
+{
+    display: grid;
+    clear: both;
+}
+
+.ReviewContent
+{
+}
+
+.Arrow
+{
+    border: solid black;
+    display: inline-block;
+    padding: 5px;
+}
+
 .VoteSelected
 {
     color: #199ed8 !important;
