@@ -9,48 +9,23 @@
         <?php include config["TEMPLATE_FOLDER"] . "Header.phtml" ?> <!--Import Header-->
         <!--Content-->
 
-        <div class="containter">
-            <div class="row">
-                <div class="mx-auto"><img class="prodFoto" alt="<?= $data["item"]->getName()?>" src="<?= $data["item"]->getImage()?>"></div>
+            <div class="row" class="margin-top: 50px">
+                <div class="col-6"><img class="prodFoto" alt="<?= $data["item"]->getName()?>" src="<?= $data["item"]->getImage()?>"></div>
+
+                <div class="col-6">
+                    <h1><?= $data["item"]->getName()?> </h1>
+                    <p><?= $data["item"]->getDiscription()?></p>
+                </div>
+
             </div>
-            <div class="row">
-                <div class="mx-auto"><h4>Naam van de fiets <?= $data["item"]->getName()?></h4></div>
+            <div class="row" style="margin-left: 50px">
+            <h4>€ <?= $data["item"]->getPrijs()?></h4>
+
+                <div class="col-md-4"><button class="btn btn-primary" style="background: #199ed8" onclick="addToCart(<?=$data['item']->getId()?>)">Voeg toe</button></div>
             </div>
 
             <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-3"><b>€ 599.99 <?= $data["item"]->getPrijs()?></b></div>
-                <div class="col-md-4"><button>Voeg toe</button></div>
             </div>
-
-            <div class="row">
-                <div class="mx-auto"><p>De omschrijving van de fiets dit is een iets langere tekst <?= $data["item"]->getDiscription()?></p></div>
-            </div>
-            <div class="row">
-                <table class="mx-auto">
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-5">Spec naam 1</td>
-                        <td class="col-md-3">Spec1</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-5">Spec naam 2</td>
-                        <td class="col-md-3">Spec1</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-5">Spec naam 3</td>
-                        <td class="col-md-3">Spec1</td>
-                    </tr>
-
-
-
-                </table>
-            </div>
-        </div>
         <br>
         <br>
         <br>

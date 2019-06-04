@@ -12,11 +12,7 @@
                         <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="catogorie">Catogorien</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" >subcribe</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" >Nieuwsbrief</a>
                     </li>
                 </ul>
 
@@ -34,7 +30,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">subcribe</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Meld je aan voor de nieuwsbief</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -45,13 +41,18 @@
                                     if(!isset($data["user"]))
                                     { ?>
                                     <div class="form-group">
-                                        <label for="InputSubcribeEmail">subcribe</label>
                                         <input name="email" type="email" class="form-control" id="InputSubcribeEmail" aria-describedby="emailHelp" placeholder="Enter email">
                                     </div>
                                     <?php
+                                    }
+                                    else
+                                    { 
+                                    ?>
+                                    <p>Klik om je aan te melden</p>
+                                    <?php
                                     } ?>
                                     <div class="modal-footer">
-                                        <button onclick="kaas()" type="submit" class="btn btn-primary">subcribe</button>
+                                        <button onclick="kaas()" type="submit" class="btn btn-primary">Meld aan!</button>
                                     </div>
                                 </form>
                                 <script src="js/Subscribe.js"></script>
@@ -86,6 +87,12 @@
                 <form class="form-inline" id="search_" action="catogorie" method="GET">
                     <div class="input-group">
                         <input type="text" class="form-control border-dark" name="search" placeholder="Search">
+                        <select name="cat">
+                            <option value="">Alle</option>
+                            <option value="man">Mannen</option>
+                            <option value="vrouw">Vrouwen</option>
+                            <option value="kind">Kinderen</option>
+                        </select>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" form="search_" type="submit"><i class="fa fa-search"></i></button>
                         </div>

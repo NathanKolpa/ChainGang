@@ -45,7 +45,7 @@ function kaas()
             type: type,
             data: data,
             success: function (response) {
-                console.log(response);
+                alert("sucsess!");
             }
         });
 

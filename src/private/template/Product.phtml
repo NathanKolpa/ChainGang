@@ -1,7 +1,7 @@
 
 <div class="ProductBody col-md-4  mx-auto">
 
-    <a href="detail?item_name=<?=$product->getName() ?>"><img width="200" height="200" type="image" src="<?=$product->getImage()?>" alt="<?=$product->getName()?>" class="ProductFoto"></a>
+    <a href="detail?item=<?=$product->getId() ?>"><img width="200" height="200" type="image" src="<?=$product->getImage()?>" alt="<?=$product->getName()?>" class="ProductFoto"></a>
 
     <h4><?=$product->getName()?></h4>
     <p class="ProductPrijs">€ <?=$product->getPrijs()?></p>

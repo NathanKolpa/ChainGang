@@ -70,6 +70,29 @@ class product
         throw new Exception("product niet gevonden");
     }
 
+    public static function searchProductsByName($db, $text) : array
+    {
+        $result = $db->querry("SELECT * FROM product WHERE product_name LIKE ?", "s", "%$text%");
+
+
+        $results = $result->get_result();
+
+        $arr = array();
+        while($row = $results->fetch_assoc())
+        {
+            $item = new Product($db, $row["product_id"], $row["foto_url"], $row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"]);
+
+            array_push($arr, $item);
+        }
+
+        if(count($arr) <= 0)
+        {
+            throw new Exception("Geen producten gevonden");
+        }
+
+        return $arr;
+    }
+
 
     // getters
     public function getMerk()

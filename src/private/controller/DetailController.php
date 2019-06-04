@@ -15,10 +15,18 @@ class DetailController extends PageController
 
     protected function getData(): array
     {
-        //urldecode() in geval dat het een $_POST is
-        $product_name = $_GET['item_name'];
-        $arr = Detail::getProductByName($this->dataBase, $product_name);
-        return array("item" => $arr);
+
+        try
+        {
+            $prod = product::getProductByID($this->dataBase,$_GET["item"]);
+        }
+        catch(Exception $e)
+        {
+            $this->loadOtherPage("404");
+        }
+
+
+        return array("item" => $prod);
 
     }
 }

@@ -11,7 +11,7 @@ class FacturenController extends PageController
 
     protected function getData() : array
     {
-        $facturen = Factuur::getFacturen(User::getUserByID($this->dataBase, 2), $this->dataBase);
+        $facturen = Factuur::getFacturen(User::getUserByID($this->dataBase, $_SESSION["userid"]), $this->dataBase);
         return array("facturen" => $facturen);
     }
 }

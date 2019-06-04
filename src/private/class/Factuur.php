@@ -6,21 +6,35 @@
  * Time: 13:00
  */
 
+ require_once config["CLASS_FOLDER"] . "ShippingProduct.php";
 class Factuur
 {
     private $id;
     private $dataBase;
+    private $shipProducts = array();
 
 
     public function __construct(DataBase $dataBase, $id, User $user)
     {
         $this->dataBase = $dataBase;
         $this->id = $id;
+
+
+        $result = $this->dataBase->querry("SELECT * FROM shipped_product WHERE invoice_id = ?", "i", $this->id);
+
+        $yeet = $result->get_result();
+
+
+        while($row = $yeet->fetch_assoc())
+        {
+            array_push($this->shipProducts, new ShippingProduct(product::getProductByID($this->dataBase, $row["product_id"]), $row["product_count"]));
+        }
+
     }
 
     public static function getFacturen(User $user, $database) : array
     {
-        $result = $database->querry("SELECT * FROM invoice WHERE invoice_id = (SELECT adress_id FROM shipping_adress WHERE user_id = ?)", "i", $user->getId());
+        $result = $database->querry("SELECT * FROM invoice WHERE adress_id = (SELECT adress_id FROM shipping_adress WHERE user_id = ?)", "i", $user->getId());
 
         $yeet = $result->get_result();
 
@@ -35,18 +49,18 @@ class Factuur
 
     public function getProducts() : array
     {
-        $result = $this->dataBase->querry("SELECT * FROM shipped_product WHERE invoice_id = ?", "i", $this->id);
+        return $this->shipProducts;
+    }
 
-        $yeet = $result->get_result();
-
-        $prod = array();
-
-        while($row = $yeet->fetch_assoc())
+    public function getTotal()
+    {
+        $total = 0;
+        foreach($this->shipProducts as $ship)
         {
-            array_push($prod, product::getProductByID($this->dataBase, $row["product_id"]));
+            $total += $ship->getTotal();
         }
-        return $prod;
 
+        return $total;
     }
 
 
