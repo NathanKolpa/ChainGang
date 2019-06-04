@@ -26,7 +26,7 @@ private $author;
         $this->db = $db; 
     }
 
-    public static function getLatestReviews($db, $limit) : array
+    /*public static function getLatestReviews($db, $limit) : array
     {
         $array = array();
         $result = $db->querry("SELECT * FROM review ORDER BY added DESC LIMIT ?", "i", $limit);
@@ -37,7 +37,6 @@ private $author;
         //$arr = array();
         while($row = $results->fetch_assoc())
         {
-            // hier wordt een object gemaakt van Product
             $item = new Review($db, $row["rating"], $row["title"], $row["body"], $row["added"], $row["author"] );
 
             array_push($array, $item);
@@ -45,7 +44,7 @@ private $author;
 
 
         return $array;
-    }
+    }*/
 
     public static function getHomeReviews($db):array
     {

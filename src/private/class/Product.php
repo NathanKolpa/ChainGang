@@ -18,7 +18,7 @@ class product
     private $kleur;
     private $versnellingen;
 
-    public function __construct( $dataBase, $img, $prijs, $stock, $name, $discription)
+    public function __construct($dataBase, $id,  $img, $prijs, $stock, $name, $discription)
     {
         $this->productID = $id;
         $this->dataBase = $dataBase;
@@ -41,7 +41,7 @@ class product
         while($row = $results->fetch_assoc())
         {
             // hier wordt een object gemaakt van Product
-            $item = new Product($db, $row["foto_url"], $row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"] );
+            $item = new Product($db, $row["product_id"], $row["foto_url"], $row["product_price"], $row["product_stock"], $row["product_name"], $row["discription"] );
 
             array_push($array, $item);
         }
