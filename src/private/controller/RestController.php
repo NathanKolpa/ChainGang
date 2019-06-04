@@ -70,22 +70,31 @@ class RestController extends Controller
 
                 case "sub":
                     {
-                        try {
-                            NewsLetter::schrijfIn($this->dataBase, $_POST['email']);
-
-                            $arr = array("status" => ":)");
-                            echo json_encode($arr);
-
-                            unset($sub);
-
-                            echo 'ik heb de email in de controller';
-                        }
-                        catch(Exception $e)
+                        if(isset($_SESSION["userid"]))
                         {
-                            $arr = array("error" => $e->getMessage());
-                            echo json_encode($arr);
+                            $ussr = User::getUserByID($this->dataBase, $_SESSION["userid"]);
 
-                            echo 'error in controller';
+                            NewsLetter::schrijfUserIn($this->dataBase, $ussr);
+                        }
+                        else
+                        {
+                            try {
+                                NewsLetter::schrijfIn($this->dataBase, $_POST['email']);
+    
+                                $arr = array("status" => ":)");
+                                echo json_encode($arr);
+    
+                                unset($sub);
+    
+                                echo 'ik heb de email in de controller';
+                            }
+                            catch(Exception $e)
+                            {
+                                $arr = array("error" => $e->getMessage());
+                                echo json_encode($arr);
+    
+                                echo 'error in controller';
+                            }
                         }
                     }
                     break;

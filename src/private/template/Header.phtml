@@ -41,10 +41,15 @@
                             </div>
                             <div class="modal-body">
                                 <form  method="POST" class="ajax">
+                                    <?php
+                                    if(!isset($data["user"]))
+                                    { ?>
                                     <div class="form-group">
                                         <label for="InputSubcribeEmail">subcribe</label>
                                         <input name="email" type="email" class="form-control" id="InputSubcribeEmail" aria-describedby="emailHelp" placeholder="Enter email">
                                     </div>
+                                    <?php
+                                    } ?>
                                     <div class="modal-footer">
                                         <button onclick="kaas()" type="submit" class="btn btn-primary">subcribe</button>
                                     </div>

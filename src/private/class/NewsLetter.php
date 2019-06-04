@@ -6,15 +6,15 @@ class NewsLetter
 
     public static function emailBestaat($db, $email)
     {
-        $result = $db->querry("SELECT nieuwsbrief_email FROM nieuwsbrief WHERE nieuwsbrief_email = ? ", "s", $email)->get_result();
+        $result = $db->querry("SELECT nieuwsbrief_email FROM newsletter_lose WHERE nieuwsbrief_email LIKE ? ", "s", "%$email%")->get_result();
 
         if ($row = $result->fetch_assoc())
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 
@@ -26,7 +26,7 @@ class NewsLetter
         //kijkt of de mail al bestaat als die niet bestaat dan komt die in de DAtaBase te komen
         if (self::emailBestaat($db,$email)) {
             try {
-                $result = $db->querry("INSERT INTO nieuwsbrief (nieuwsbrief_email) VALUES (?)", "s", $email);
+                $result = $db->querry("INSERT INTO newsletter_lose (nieuwsbrief_email) VALUES (?)", "s", $email);
 
 
             } catch (Exception $e) {
@@ -39,13 +39,13 @@ class NewsLetter
     //moet nog een delete email komen
     // als unsubscribe
     //als het een vinkje box is maak een functie en stop daarin de schriijfIn functie in anders delete of zo iets
-    public function schrijfUit(DataBase $db, string $email)
+    public static function schrijfUit(DataBase $db, string $email)
     {
 
-        //kijkt of de mail al bestaat als die niet bestaat dan komt die in de DAtaBase te komen
-        if ($this->emailBestaat($db,$email) == false) {
+        if (self::emailBestaat($db,$email)) 
+        {
             try {
-                $result = $db->querry("DELETE FROM nieuwsbrief WHERE nieuwsbrief_email = ?", "s", $email);
+                $result = $db->querry("DELETE FROM newsletter_lose WHERE nieuwsbrief_email LIKE ?", "s", "%$email%");
 
 
             } catch (Exception $e) {
@@ -54,6 +54,13 @@ class NewsLetter
 
             }
         }
+    }
+
+    public static function schrijfUserIn($db, User $user)
+    {
+        $id = $user->getId();
+
+        $db->querry("UPDATE users SET allow_newsletters = 1 WHERE user_id = ?", "i", $id);
     }
 }
 
