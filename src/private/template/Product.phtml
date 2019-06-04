@@ -4,6 +4,6 @@
     <h4><?=$product->getName()?></h4>
     <p class="ProductPrijs">€ <?=$product->getPrijs()?></p>
     <p><?=$product->getDiscription()?></p>
-    <button name="veranderFoto" type="submit" class="ProductKnop" >voeg aan winkelwagen toe</button>
+    <button name="veranderFoto" type="submit" class="ProductKnop" onclick="addToCart(<?=$product->getId()?>)">voeg aan winkelwagen toe</button>
 
 </div>

@@ -16,7 +16,16 @@
                     </li>
                 </ul>
 
+                <div class="dropdown">
+                    <button class="dropdown-toggle" onclick="showCart()" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 20px; border: 0; background-color: #199ed8; color: white;">
+                        Winkel Wagen
+                    </button>
+                    <div class="dropdown-menu" id="cart" aria-labelledby="dropdownMenuButton">
+                    </div>
+                </div>
+
                 <div class="navbar-text" style="margin-right: 20px">
+
                     <?php
                         if(isset($data["user"]))
                         {
