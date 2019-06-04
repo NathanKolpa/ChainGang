@@ -15,7 +15,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"><strong>Facturen</strong></h3>
                     </div>
-                    <div class="panel-body">
+                    <!--<div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-condensed">
                                 <thead>
@@ -28,7 +28,7 @@
                                 </thead>
                                 <tbody>
                                     <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                    <tr>
+                                    <!--<tr>
                                         <td>Gazelle 1</td>
                                         <td class="text-center">499.99</td>
                                         <td class="text-center">1</td>
@@ -63,7 +63,53 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div>-->
+                    <?php
+                    foreach ($data["facturen"] as $factuur)
+                    {
+                        ?>
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Product</strong></td>
+                                    <td class="text-center"><strong>Prijs</strong></td>
+                                    <td class="text-center"><strong>Aantal</strong></td>
+                                    <td class="text-right"><strong>Totaal</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+
+                                foreach ($factuur->getProducts() as $product)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo "ja" ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong>Sub totaal</strong></td>
+                                        <td class="no-line text-right">1999.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong></strong></td>
+                                        <td class="no-line text-right"><a href="#">Betalen</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                        <?php
+                    }
+                    ?>
             </div>
         </div>
 

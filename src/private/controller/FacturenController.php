@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: michi
- * Date: 15-5-2019
- * Time: 13:00
- */
+
+require_once config["CLASS_FOLDER"] . "Factuur.php";
 
 class FacturenController extends PageController
 {
@@ -15,6 +11,7 @@ class FacturenController extends PageController
 
     protected function getData() : array
     {
-        return array();
+        $facturen = Factuur::getFacturen(User::getUserByID($this->dataBase, 2), $this->dataBase);
+        return array("facturen" => $facturen);
     }
 }
