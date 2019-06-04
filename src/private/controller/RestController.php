@@ -39,6 +39,36 @@ class RestController extends Controller
                         }
                     }
                     break;
+                case "cartGet":
+                    {
+                        $arr = json_decode($_COOKIE["products"]);
+
+                        $returnHTML = "";
+                        $index = 0;
+                        foreach($arr as $prodID)
+                        {
+                            $prod = Product::getProductByID($this->dataBase, $prodID);
+                            $returnHTML .= 
+                            "<div class='dropdown-item'>" .
+                                "<ul class='list-inline'>" .
+                                    "<li class='list-inline-item'>".
+                                        $prod->getName() .
+                                    "</li>".
+                                    "<li class='list-inline-item'>".
+                                        "€ " . $prod->getPrijs() .
+                                    "</li>".
+                                    "<li class='list-inline-item'>".
+                                        "<button onclick='removeFromCart($index)'>X</button>".
+                                    "</li>".
+                                "</ul>" .
+                            "</div>";
+
+                            $index++;
+                        }
+
+                        echo json_encode($returnHTML);
+                    }
+                    break;
             }
         }
         else
