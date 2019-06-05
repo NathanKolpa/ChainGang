@@ -14,7 +14,7 @@ class CatogorieController extends PageController
     {
         $arr = array();
         $searchError = null;
-        if(isset($_GET["cat"]))
+        if(isset($_GET["cat"]) && $_GET["cat"])
         {
             try
             {
