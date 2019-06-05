@@ -8,8 +8,12 @@
     margin-bottom: 5px;
     word-wrap: break-word;
     position: relative;
-    overflow: hidden;
 
+}
+
+.ProductBody p
+{
+    overflow: hidden;
 }
 
 .ProductFoto
